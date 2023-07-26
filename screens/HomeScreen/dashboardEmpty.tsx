@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { Button, StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import { Avatar, BottomNavigation, Divider, FAB, IconButton } from 'react-native-paper'
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-
-const Tab=createBottomTabNavigator()
+import BottomTab from '../../navigation/bottomTab'
+import { NavigationContainer } from '@react-navigation/native'
 
 const AvatarNBell = ({navigation}:any) => {
     return(

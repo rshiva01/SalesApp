@@ -12,6 +12,9 @@ import ForgotPassword2 from './screens/forgotPassword2'
 import ChangePassword2 from './screens/changePassword2'
 import Profile from './screens/profile'
 import Notifications from './screens/notifications'
+import BottomTab from './navigation/bottomTab'
+import AppLock from './screens/appLock'
+import FAQ from './screens/faq'
 
 
 const Stack = createNativeStackNavigator()
@@ -23,29 +26,40 @@ const Stack = createNativeStackNavigator()
   //return <Login/>
   //return <NewLogIn/>
   //return <DashboardEmpty/>
+
+
+  // return(
+  //   <NavigationContainer>
+  //     <BottomTab/>
+  //   </NavigationContainer>
+  // )
+
+
   //return <DashboardFilled/>
   //return <ForgotPassword1/>
   //return <ForgotPassword2/>
   //return <ChangePassword2/>
-  //return <Profile/>
+  // return <Profile/>
   //return <Notifications/>
+  // return <AppLock/>
+  return <FAQ/>
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name = "OnBoarding1" component={OnBoarding1}/>
-        <Stack.Screen name = "OnBoarding2" component={OnBoarding2}/>
-        <Stack.Screen name = "OnBoarding3" component={OnBoarding3}/>
-        <Stack.Screen name = "LogIn" component={Login}/>
-        <Stack.Screen name="Dashboard" component={DashboardEmpty}/>
-        <Stack.Screen name="Dashboard2" component={DashboardFilled}/>
-        <Stack.Screen name = "ForgotPassword" component={ForgotPassword1}/>
-        <Stack.Screen name = "ForgotPassword2" component={ForgotPassword2}/>
-        <Stack.Screen name = "ChangePassword" component={ChangePassword2}/>
-        <Stack.Screen name = "Notifications" component={Notifications}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-  )
+  // return (
+  //   <NavigationContainer>
+  //     <Stack.Navigator screenOptions={{headerShown: false}}>
+  //       <Stack.Screen name = "OnBoarding1" component={OnBoarding1}/>
+  //       <Stack.Screen name = "OnBoarding2" component={OnBoarding2}/>
+  //       <Stack.Screen name = "OnBoarding3" component={OnBoarding3}/>
+  //       <Stack.Screen name = "LogIn" component={Login}/>
+  //       <Stack.Screen name="Dashboard" component={DashboardEmpty}/>
+  //       <Stack.Screen name="Dashboard2" component={DashboardFilled}/>
+  //       <Stack.Screen name = "ForgotPassword" component={ForgotPassword1}/>
+  //       <Stack.Screen name = "ForgotPassword2" component={ForgotPassword2}/>
+  //       <Stack.Screen name = "ChangePassword" component={ChangePassword2}/>
+  //       <Stack.Screen name = "Notifications" component={Notifications}/>
+  //     </Stack.Navigator>
+  //   </NavigationContainer>
+  // )
 }
 
 export default App

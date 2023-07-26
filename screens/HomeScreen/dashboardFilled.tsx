@@ -3,6 +3,7 @@ import { Button, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } f
 import { Avatar, BottomNavigation, Divider, FAB, IconButton } from 'react-native-paper'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { AvatarNBell, SalesSummary, SalesFigBox } from './dashboardEmpty'
+import BottomTab from '../../navigation/bottomTab'
 
 type SalesProps = {
     name: string

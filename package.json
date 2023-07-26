@@ -21,6 +21,7 @@
     "react-native-paper": "^5.9.1",
     "react-native-safe-area-context": "^4.7.0",
     "react-native-screens": "^3.22.0",
+    "react-native-smooth-pincode-input": "^1.0.9",
     "react-native-splash-screen": "^3.3.0"
   },
   "devDependencies": {

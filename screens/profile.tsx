@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Avatar, IconButton, List } from 'react-native-paper'
 
 type BackNBell = {
@@ -49,16 +49,54 @@ const Profile = () => {
             <BackNBell text='My Profile' />
             <View style = {styles.container2} >
                 <AvatarEdit/>
-                <List.Section title = 'Items'>
-                    <List.Accordion
-                        title = 'Settings'
-                        left={props => <List.Icon {...props} icon={require('../assets/settingIcon.png')}/>}>
-                        <List.Item title = 'Reset Password'/>
-                        <List.Item title = 'Notifications'/>
-                        <List.Item title = 'App Lock'/>
-                    </List.Accordion>
-                </List.Section>
             </View>
+            <ScrollView>
+            <View style={styles.listContainer} >
+                <List.Section title = ''>
+                        <List.Accordion
+                            title = 'Settings'
+                            left={props => <List.Icon {...props} icon={require('../assets/settingIcon.png')}/>}
+                            style = {styles.listStyle}
+                            titleStyle = {styles.listTitleStyle}
+                            >
+                            <List.Item title = 'Reset Password' titleStyle = {styles.listItemTitleStyle} />
+                            <List.Item title = 'Notifications' titleStyle = {styles.listItemTitleStyle}/>
+                            <List.Item title = 'App Lock' titleStyle = {styles.listItemTitleStyle}/>
+                        </List.Accordion>
+                        <List.Accordion
+                            title = 'Help & Support'
+                            left={props => <List.Icon {...props} icon={require('../assets/help&supportIcon.png')}/>}
+                            style = {styles.listStyle}
+                            titleStyle = {styles.listTitleStyle}
+                            >
+                            <List.Item title = 'FAQ' titleStyle = {styles.listItemTitleStyle}/>
+                            <List.Item title = 'Call us' titleStyle = {styles.listItemTitleStyle}/>
+                            <List.Item title = 'Chat with us' titleStyle = {styles.listItemTitleStyle}/>
+                        </List.Accordion>
+                        <List.Accordion
+                            title = 'About Us'
+                            left={props => <List.Icon {...props} icon={require('../assets/aboutUsIcon.png')}/>}
+                            style = {styles.listStyle}
+                            titleStyle = {styles.listTitleStyle}
+                            >
+                        </List.Accordion>
+                        <List.Accordion
+                            title = 'Terms & Condition'
+                            left={props => <List.Icon {...props} icon={require('../assets/terms&ConditionIcon.png')}/>}
+                            style = {styles.listStyle}
+                            titleStyle = {styles.listTitleStyle}
+                            >
+                        </List.Accordion>
+                        <List.Accordion
+                            title = 'Logout'
+                            left={props => <List.Icon {...props} icon={require('../assets/logoutIcon.png')}/>}
+                            style = {styles.listStyle}
+                            titleStyle = {styles.listTitleStyle}
+                            >
+                        </List.Accordion>
+                    </List.Section>
+            </View>
+            </ScrollView>
         </View>
     )
 }
@@ -98,4 +136,20 @@ const styles = StyleSheet.create({
         fontSize: 14,
         padding: 3
     },
+    listContainer:{
+      backgroundColor: '#012E3C',
+      borderRadius: 15,
+      marginHorizontal: 10,
+    },
+    listStyle:{
+        backgroundColor:'#012E3C',
+    },
+    listTitleStyle:{
+        color:'#F6B100',
+        fontSize:14
+    },
+    listItemTitleStyle:{
+        color: '#FFE296',
+        fontSize:14
+    }
 })
