@@ -39,7 +39,7 @@ const Stack = createNativeStackNavigator()
   //return <ForgotPassword1/>
   //return <ForgotPassword2/>
   //return <ChangePassword2/>
-  // return <Profile/>
+  //  return <Profile/>
   //return <Notifications/>
   // return <AppLock/>
   return <FAQ/>

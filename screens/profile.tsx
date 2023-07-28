@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Avatar, IconButton, List } from 'react-native-paper'
 
 type BackNBell = {
@@ -70,7 +70,7 @@ const Profile = () => {
                             titleStyle = {styles.listTitleStyle}
                             >
                             <List.Item title = 'FAQ' titleStyle = {styles.listItemTitleStyle}/>
-                            <List.Item title = 'Call us' titleStyle = {styles.listItemTitleStyle}/>
+                            <List.Item title = 'Call us' titleStyle = {styles.listItemTitleStyle} onPress={()=>{Linking.openURL('tel:+2558900076786')}} />
                             <List.Item title = 'Chat with us' titleStyle = {styles.listItemTitleStyle}/>
                         </List.Accordion>
                         <List.Accordion
