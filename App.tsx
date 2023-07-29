@@ -15,6 +15,7 @@ import Notifications from './screens/notifications'
 import BottomTab from './navigation/bottomTab'
 import AppLock from './screens/appLock'
 import FAQ from './screens/faq'
+import AboutUs from './screens/aboutUs'
 
 
 const Stack = createNativeStackNavigator()
@@ -42,7 +43,8 @@ const Stack = createNativeStackNavigator()
   //  return <Profile/>
   //return <Notifications/>
   // return <AppLock/>
-  return <FAQ/>
+  // return <FAQ/>
+  return <AboutUs/>
 
   // return (
   //   <NavigationContainer>
