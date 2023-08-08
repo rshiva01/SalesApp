@@ -17,6 +17,13 @@ import AppLock from './screens/appLock'
 import FAQ from './screens/faq'
 import AboutUs from './screens/aboutUs'
 import TermsNCondition from './screens/terms&Condition'
+import CreateSales from './screens/createSales'
+import SalesDetails from './screens/salesDetails'
+import SearchCustomers from './screens/searchCustomers'
+import CustomerAdded from './screens/createSales'
+import AddProducts from './screens/addProducts'
+import ReviewOrder from './screens/reviewOrder'
+import AddPayment from './screens/addPayment'
 
 
 const Stack = createNativeStackNavigator()
@@ -41,12 +48,18 @@ const Stack = createNativeStackNavigator()
   //return <ForgotPassword1/>
   //return <ForgotPassword2/>
   //return <ChangePassword2/>
-  //  return <Profile/>
+  //return <Profile/>
   //return <Notifications/>
   // return <AppLock/>
   // return <FAQ/>
   // return <AboutUs/>
-  return <TermsNCondition/>
+  // return <TermsNCondition/>
+  //return <CreateSales/>
+  //return <SalesDetails/>
+  //return <SearchCustomers/>
+  //return <CustomerAdded/>
+  //return <AddPayment/>
+  //return <AddProducts/>
 
   // return (
   //   <NavigationContainer>
@@ -64,6 +77,19 @@ const Stack = createNativeStackNavigator()
   //     </Stack.Navigator>
   //   </NavigationContainer>
   // )
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Dashboard2" component={DashboardFilled}/>
+        <Stack.Screen name = "CreateSales" component={CreateSales}/>
+        <Stack.Screen name = "AddProducts" component={AddProducts}/>
+        <Stack.Screen name = "ReviewOrder" component={ReviewOrder}/>
+        <Stack.Screen name = "AddPayment" component={AddPayment}/>
+        <Stack.Screen name = "Notifications" component={Notifications}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
 export default App

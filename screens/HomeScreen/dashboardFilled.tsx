@@ -18,7 +18,7 @@ import {
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {AvatarNBell, SalesSummary, SalesFigBox} from './dashboardEmpty';
 import BottomTab from '../../navigation/bottomTab';
-import {useTranslation} from '../../localization/
+import {useTranslation} from '../../localization/'
 
 type SalesProps = {
   name: string;
@@ -105,8 +105,8 @@ const SalesEntry = (props: SalesProps) => {
 };
 export {SalesEntry};
 
-const DashboardFilled = () => {
-  const {t} = useTranslatio();
+const DashboardFilled = ({navigation}:any) => {
+  const {t} = useTranslation();
   return (
     <View style={styles.container}>
       <AvatarNBell />
@@ -114,7 +114,7 @@ const DashboardFilled = () => {
       <SalesFigBox tzs="12,450" productSold="20" />
       <View style={styles.yourSales}>
         <Text style={styles.yourSalesText}>Your Sales</Text>
-        <TouchableOpacity style={styles.createSalesButton}>
+        <TouchableOpacity style={styles.createSalesButton} onPress={()=>{navigation.navigate('CreateSales')}}>
           <Text style={styles.buttonText}>Create Sales</Text>
         </TouchableOpacity>
       </View>
