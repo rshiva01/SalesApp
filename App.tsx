@@ -51,11 +51,11 @@ const Stack = createNativeStackNavigator()
   //return <Profile/>
   //return <Notifications/>
   // return <AppLock/>
-  // return <FAQ/>
+  //return <FAQ/>
   // return <AboutUs/>
   // return <TermsNCondition/>
   //return <CreateSales/>
-  //return <SalesDetails/>
+  return <SalesDetails/>
   //return <SearchCustomers/>
   //return <CustomerAdded/>
   //return <AddPayment/>
@@ -78,18 +78,18 @@ const Stack = createNativeStackNavigator()
   //   </NavigationContainer>
   // )
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Dashboard2" component={DashboardFilled}/>
-        <Stack.Screen name = "CreateSales" component={CreateSales}/>
-        <Stack.Screen name = "AddProducts" component={AddProducts}/>
-        <Stack.Screen name = "ReviewOrder" component={ReviewOrder}/>
-        <Stack.Screen name = "AddPayment" component={AddPayment}/>
-        <Stack.Screen name = "Notifications" component={Notifications}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-  )
+  // return (
+  //   <NavigationContainer>
+  //     <Stack.Navigator screenOptions={{headerShown: false}}>
+  //       <Stack.Screen name="Dashboard2" component={DashboardFilled}/>
+  //       <Stack.Screen name = "CreateSales" component={CreateSales}/>
+  //       <Stack.Screen name = "AddProducts" component={AddProducts}/>
+  //       <Stack.Screen name = "ReviewOrder" component={ReviewOrder}/>
+  //       <Stack.Screen name = "AddPayment" component={AddPayment}/>
+  //       <Stack.Screen name = "Notifications" component={Notifications}/>
+  //     </Stack.Navigator>
+  //   </NavigationContainer>
+  // )
 }
 
 export default App

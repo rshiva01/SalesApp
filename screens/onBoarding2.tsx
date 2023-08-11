@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
-import { Container, SkipButton } from './constants'
 
 
 const OnBoarding2 = ({navigation}:any) => {
@@ -13,7 +12,6 @@ const OnBoarding2 = ({navigation}:any) => {
         <View style={styles.container2}>
             <View style={styles.container3} >
                 <Text style={styles.text} >onBoarding2</Text>
-                {/* Track Your Sales The Smart{'\n'}Way With Switch Mauzo */}
             </View>
             <TouchableOpacity style={styles.nextButton} onPress={() => {navigation.navigate('OnBoarding3')}}>
                 <Text style={styles.nextText} >Next</Text>
@@ -26,14 +24,14 @@ const OnBoarding2 = ({navigation}:any) => {
 export default OnBoarding2
 
 const styles = StyleSheet.create({
-    container: {flex:1, backgroundColor:'#012E3C', paddingTop:20,},
+    container: {flex:1, backgroundColor:'#012E3C', paddingTop:20},
     skipButton: {
         backgroundColor: '#012E3C',
         borderColor: '#F6B100',
         borderRadius:10,
         margin:20,
-        maxWidth: 96,
-        maxHeight: 48,
+        // maxWidth: 96,
+        // maxHeight: 48,
         width:96,
         height:48,
         borderWidth: 1,

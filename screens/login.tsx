@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React, {useState} from 'react'
 import { Button, Divider, TextInput } from 'react-native-paper'
+import { JumpingTransition } from 'react-native-reanimated'
 
 const LogoContainer = () => {
   return(
@@ -60,6 +61,7 @@ const UnsecuredTextBox = (props: TextBoxProps) => {
     textColor='#D5EAF1'
     activeOutlineColor='#D5EAF1'
     placeholderTextColor='#D5EAF1'
+    outlineStyle = {styles.outline}
     />
   )
 }
@@ -79,6 +81,7 @@ const SecuredTextBox = (props: SecuredTextBoxProps) => {
     textColor='#D5EAF1'
     activeOutlineColor='#D5EAF1'
     placeholderTextColor={'#D5EAF1'}
+    outlineStyle = {styles.outline}
     />
   )
 }
@@ -89,16 +92,15 @@ const Login = ({navigation}:any) => {
     <View style={styles.mainContainer}>
       <LogoContainer/>
       <Dividers/>
-      <YellowText text='Forgot Password' />
-      <Content text='Enter your register Mobile number' />
+      <YellowText text='Login Now' />
       <UnsecuredTextBox placeholder='Enter Mobile Number' />
       <SecuredTextBox placeholder='Password'/>
       <View style = {styles.container} >
         <Text style = {{color:'#FFFFFF',fontSize:14 }} >Remember me</Text>
         <Button textColor='#FFE296' onPress={()=>{navigation.navigate('ForgotPassword')}} >Forgot Password</Button>
       </View>
+      <Text style = {styles.copyRightText} >Copy @ Switch 2023</Text>
       <View style={styles.buttonContainer}>
-        {/* <TouchableOpacity style={styles.updateButton} onPress={()=>{navigation.navigate('Dashboard')}} > */}
         <TouchableOpacity style={styles.updateButton} onPress={()=>{navigation.navigate('Dashboard2')}} >
           <Text style={styles.update}>Log In</Text>
         </TouchableOpacity>
@@ -144,18 +146,10 @@ const styles = StyleSheet.create({
   textContainer:{
     backgroundColor:'#012E3C',
     margin: 20,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
   },
   passwordContainer:{
     backgroundColor:'#01232D',
     margin: 20,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
 },
   container:{
     flexDirection:'row',
@@ -194,4 +188,12 @@ const styles = StyleSheet.create({
     margin: 20,
     alignSelf: 'center',
   },
+  copyRightText:{
+    color:'#FFFFFF',
+    alignSelf:'center',
+    marginTop:100
+  },
+  outline:{
+    borderRadius:10
+  }
 })

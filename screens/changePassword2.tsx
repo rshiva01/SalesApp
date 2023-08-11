@@ -15,7 +15,7 @@ const ChangePassword2 = ({navigation}:any) => {
             <SecuredTextBox placeholder='Confirm Password'/>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.logInButton} onPress={()=>{navigation.navigate('LogIn')}} >
-                    <Text style={styles.logIn}>Submit</Text>
+                    <Text style={styles.logIn}>Update</Text>
                 </TouchableOpacity>
             </View>
         </View>

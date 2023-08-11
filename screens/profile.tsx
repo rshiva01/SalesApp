@@ -12,12 +12,15 @@ const BackNBell = (props:BackNBell) => {
                 <IconButton
                     icon={require('../assets/backArrowButton.png')}
                     size={20}
+                    iconColor='#F6B100'
                 />
                 <Text style = {styles.textStyle} >{props.text}</Text>
             </View>
             <View>
                 <IconButton
                     icon={require('../assets/bellIcon.png')}
+                    iconColor='#F6B100'
+                    size={20}
                 />
             </View>
         </View>
@@ -35,7 +38,7 @@ const AvatarEdit = () => {
                     <Text style = {styles.avatarText} >nickj44@ybl.com</Text>
                 </View>
             </View>
-            <IconButton icon={require('../assets/editIcon.png')} size={13}/>
+            <IconButton icon={require('../assets/editIcon.png')} size={13} iconColor='#AAD2DF'/>
         </View>
     )
 }
