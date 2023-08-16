@@ -3,45 +3,30 @@ import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "rea
 import { Button, Divider, IconButton, Searchbar } from "react-native-paper";
 import { UnsecuredTextBox } from "./login";
 
-const AddProducts = ({navigation}:any) => {
+const AddCustomers = ({navigation}:any) => {
     return(
         <View style = {styles.mainContainer}>
             <View style = {{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}} >
                 <View style = {{flexDirection:'row', alignItems:'center'}}>
-                    <IconButton icon={require('../assets/backArrowButton.png')} iconColor="#F6B100" size={19} onPress={()=>{navigation.goBack()}}/>
+                    <IconButton icon={require('../assets/backArrowButton.png')} iconColor="#F6B100" size={19}/>
                     <Text style = {{color:'#F6B100'}}>Create Sales</Text>
                 </View>
                 <Button labelStyle={{color:'#F6B100', fontSize:14}}>Cancel</Button>
             </View>
-            <View>
-                <View style = {{justifyContent:'space-evenly', flexDirection:'row', alignItems:'center', marginTop:30}} >
-                    <View style = {{alignItems:'center'}} >
-                        <Image source={require('../assets/tickIcon.png')} resizeMode="contain"/>
-                        <Text style = {styles.yellowText}>Customer Detail</Text>
-                    </View>
-                    <View style = {{alignItems:'center'}} >
-                        <Image source={require('../assets/tickIcon.png')} resizeMode="contain"/>
-                        <Text style = {styles.yellowText}>Add Product & Review</Text>
-                    </View>
-                    <View style = {{alignItems:'center'}} >
-                        <Image source={require('../assets/ellipse.png')} resizeMode="contain" style = {{height:13, width:13}}/>
-                        <Text style = {styles.whiteText} >Add Payment</Text>
-                    </View>
-                </View>
-            </View>
-            <Text style = {{color:'#FFFFFF', fontWeight:'bold', fontSize:14, marginTop:40, marginLeft:20}} >Add Products to your sales</Text>
+            <Text style = {{color:'#FFFFFF', fontWeight:'bold', fontSize:14, marginTop:40, marginLeft:20}} >Customer Details</Text>
             <ScrollView>
-                <UnsecuredTextBox placeholder="Product Name" />
-                <UnsecuredTextBox placeholder="Quality"/>
-                <UnsecuredTextBox placeholder="Unit Price"/>
-                <UnsecuredTextBox placeholder="Discount"/>
-                <UnsecuredTextBox placeholder="Selling Price"/>
+                <UnsecuredTextBox placeholder="Customer First Name" />
+                <UnsecuredTextBox placeholder="Customer Last Name"/>
+                <UnsecuredTextBox placeholder="Email Address"/>
+                <UnsecuredTextBox placeholder="Mobile Number"/>
+                <UnsecuredTextBox placeholder="Bussiness Name"/>
+                <UnsecuredTextBox placeholder="TIN"/>
+                <UnsecuredTextBox placeholder="Choose Industry"/>
             </ScrollView>
-            <View style = {{marginTop:10, height:150}}>
-                <Button style = {styles.addMoreButton} labelStyle={styles.addMoreText}>Add More</Button>
+            <View style = {{height:77}}>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.updateButton} onPress={()=>{navigation.navigate('ReviewOrder')}}>
-                        <Text style={styles.update}>Next</Text>
+                    <TouchableOpacity style={styles.updateButton} onPress={()=>{navigation.navigate('CreateSales')}}>
+                        <Text style={styles.update}>Save</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -49,7 +34,7 @@ const AddProducts = ({navigation}:any) => {
     )
 }
 
-export default AddProducts
+export default AddCustomers
 
 const styles = StyleSheet.create({
     mainContainer:{

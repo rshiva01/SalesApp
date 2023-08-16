@@ -8,7 +8,7 @@ const CreateSales = ({navigation}:any) => {
         <View style = {styles.mainContainer}>
             <View style = {{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}} >
                 <View style = {{flexDirection:'row', alignItems:'center'}}>
-                    <IconButton icon={require('../assets/backArrowButton.png')} iconColor="#F6B100" size={19}/>
+                    <IconButton icon={require('../assets/backArrowButton.png')} iconColor="#F6B100" size={19} onPress={()=>{navigation.goBack()}}/>
                     <Text style = {{color:'#F6B100'}}>Create Sales</Text>
                 </View>
                 <Button labelStyle={{color:'#F6B100', fontSize:14}}>Cancel</Button>
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
     },
     buttonContainer:{
         flex:1,
-        justifyContent:'flex-end'
+        justifyContent:'flex-end',
+        alignSelf:'center'
     },
     updateButton:{
         flex:1,

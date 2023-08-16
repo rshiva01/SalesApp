@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Divider, IconButton } from "react-native-paper";
 
 type DetailsProps = {
@@ -24,6 +24,64 @@ const UnPaid = () => {
     )
 }
 
+type ItemData = {
+    productName: string
+    qty: string
+    unitPrice: string
+    sellingPrice: string
+}
+
+const DATA: ItemData[] = [
+    {
+        productName:'Biscuits Wheat',
+        qty: '10',
+        unitPrice:'200',
+        sellingPrice:'2000'
+    },
+    {
+        productName:'Biscuits Wheat',
+        qty: '10',
+        unitPrice:'200',
+        sellingPrice:'2000'
+    },
+    {
+        productName:'Biscuits Wheat',
+        qty: '10',
+        unitPrice:'200',
+        sellingPrice:'2000'
+    },
+    {
+        productName:'Biscuits Wheat',
+        qty: '10',
+        unitPrice:'200',
+        sellingPrice:'2000'
+    },
+    {
+        productName:'Biscuits Wheat',
+        qty: '10',
+        unitPrice:'200',
+        sellingPrice:'2000'
+    },
+]
+
+type ItemProps = {
+    productName: string
+    qty: string
+    unitPrice: string
+    sellingPrice: string
+}
+
+const Item = (props:ItemProps) => {
+    return(
+        <View style = {{flexDirection:'row', justifyContent:'space-between', margin:10}}>
+            <Text style = {styles.itemStyle} >{props.productName}</Text>
+            <Text style = {styles.itemStyle}>{props.qty}</Text>
+            <Text style = {styles.itemStyle}>TZS {props.unitPrice}</Text>
+            <Text style = {styles.itemStyle}>TZS {props.sellingPrice}</Text>
+        </View>
+    )
+}
+
 const DetailsBox = (props: DetailsProps) => {
     return(
         <View style = {{margin:20}} >
@@ -42,7 +100,7 @@ const DetailsBox = (props: DetailsProps) => {
                     </View>
                 </View>
             </View>
-            <View>
+            <View style = {{backgroundColor:'#012E3C', borderBottomRightRadius:15, borderBottomLeftRadius:15, paddingBottom: 20}} >
                 <View style = {{flexDirection:'row', justifyContent:"space-between", margin:10}} >
                     <Text style = {styles.attributesStyle} >Product Name</Text>
                     <Text style = {styles.attributesStyle}>Qty.</Text>
@@ -50,20 +108,28 @@ const DetailsBox = (props: DetailsProps) => {
                     <Text style = {styles.attributesStyle}>Selling Price</Text>
                 </View>
                 <Divider style = {{marginHorizontal:10}} />
+                <ScrollView>
+                    <Item productName="Biscuits" qty="10" unitPrice="1200" sellingPrice="30"/>
+                    <Item productName="Biscuits" qty="10" unitPrice="1200" sellingPrice="30"/>
+                    <Item productName="Biscuits" qty="10" unitPrice="1200" sellingPrice="30"/>
+                    <Item productName="Biscuits" qty="10" unitPrice="1200" sellingPrice="30"/>
+                    <Item productName="Biscuits" qty="10" unitPrice="1200" sellingPrice="30"/>
+                    <Item productName="Biscuits" qty="10" unitPrice="1200" sellingPrice="30"/>
+                </ScrollView>
             </View>
         </View>
     )
 }
 
-const SalesDetails = () => {
+const SalesDetails = ({navigation}:any) => {
     return(
         <View style = {styles.mainContainer} >
             <View style = {{flexDirection:'row', justifyContent:'space-between', marginHorizontal:20}} >
                 <View style = {{flexDirection:'row', alignItems:'center'}} >
-                    <IconButton icon={require('../assets/backArrowButton.png')} iconColor="#F6B100" size={19}/>
+                    <IconButton icon={require('../assets/backArrowButton.png')} iconColor="#F6B100" size={19} onPress={() => {navigation.goBack()}}/>
                     <Text style = {styles.salesDetailsStyle} >Sales Details</Text>
                 </View>
-                <IconButton icon={require('../assets/bellIcon.png')} iconColor="#F6B100" size={19}/>
+                <IconButton icon={require('../assets/bellIcon.png')} iconColor="#F6B100" size={19} onPress={() => {navigation.navigate('Notifications')}}/>
             </View>
             <DetailsBox customerName="John Doe" companyName="XYZ Enterprize" totalAmount="12450"/>
         </View>
@@ -105,5 +171,9 @@ const styles = StyleSheet.create({
         color:'#D5EAF1',
         fontWeight:'bold',
         fontSize: 12
+    },
+    itemStyle:{
+        color:"#FFFFFF",
+        fontSize:12,
     }
 })

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { BackNBell } from './profile'
+import { IconButton } from 'react-native-paper'
 
 const NotificationContent = () => {
     return(
@@ -12,10 +13,27 @@ const NotificationContent = () => {
 }
 export {NotificationContent}
 
-const Notifications = () => {
+const Notifications = ({navigation}:any) => {
     return(
         <View style = {styles.mainContainer} >
-            <BackNBell text='Notifications' />
+            <View style = {styles.container1} >
+            <View style = {styles.backArrowContainer} >
+                <IconButton
+                    icon={require('../assets/backArrowButton.png')}
+                    size={20}
+                    iconColor='#F6B100'
+                />
+                <Text style = {styles.textStyle} >Notifications</Text>
+            </View>
+            <View>
+                <IconButton
+                    icon={require('../assets/bellIcon.png')}
+                    iconColor='#F6B100'
+                    size={20}
+                    onPress={()=>{navigation.goBack()}}
+                />
+            </View>
+        </View>
             <NotificationContent/>
             <NotificationContent/>
             <NotificationContent/>
@@ -30,6 +48,19 @@ const styles = StyleSheet.create({
         flex:1,
         backgroundColor:'#01232D',
         paddingTop: 20,
+    },
+    container1:{
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        marginHorizontal: 10,
+    },
+    backArrowContainer:{
+        flexDirection:'row',
+    },
+    textStyle:{
+        alignSelf:'center',
+        color: '#F6B100',
+        fontSize: 14,
     },
     container:{
         backgroundColor: '#012E3C',

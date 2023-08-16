@@ -30,8 +30,8 @@ const ReviewOrder = ({navigation}:any) => {
         <View style = {styles.mainContainer}>
             <View style = {{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}} >
                 <View style = {{flexDirection:'row', alignItems:'center'}}>
-                    <IconButton icon={require('../assets/backArrowButton.png')} iconColor="#F6B100" size={19}/>
-                    <Text style = {{color:'#F6B100'}}>Create Sales</Text>
+                    <IconButton icon={require('../assets/backArrowButton.png')} iconColor="#F6B100" size={19} onPress={() => {navigation.goBack()}}/>
+                    <Text style = {{color:'#F6B100'}}>Review Order</Text>
                 </View>
                 <Button labelStyle={{color:'#F6B100', fontSize:14}}>Cancel</Button>
             </View>
@@ -56,9 +56,9 @@ const ReviewOrder = ({navigation}:any) => {
                 <DetailBox title="Pepsi" quantity="100" sellingPrice="2000" />
                 <DetailBox title="Chocos" quantity="100" sellingPrice="2000" />
             </View>
-            <Button style = {styles.addMoreButton} labelStyle={styles.addMoreText}>Add More</Button>
+            <Button style = {styles.addMoreButton} labelStyle={styles.addMoreText} onPress={() => {navigation.navigate('AddProducts')}}>Add More</Button>
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.updateButton} onPress={()=>{navigation.navigate('AddPayment')}}>
+                <TouchableOpacity style={styles.updateButton}>
                     <Text style={styles.update}>Next</Text>
                 </TouchableOpacity>
             </View>
@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
     },
     buttonContainer:{
         flex:1,
-        justifyContent:'flex-end'
+        justifyContent:'flex-end',
+        alignSelf:'center'
     },
     updateButton:{
         flex:1,
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6B100',
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
-        justifyContent:'center'
+        justifyContent:'center',
       },
       update:{
         color: '#01232D',

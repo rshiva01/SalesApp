@@ -24,6 +24,8 @@ import CustomerAdded from './screens/createSales'
 import AddProducts from './screens/addProducts'
 import ReviewOrder from './screens/reviewOrder'
 import AddPayment from './screens/addPayment'
+import SearchProducts from './screens/searchProduct'
+import AddCustomers from './screens/addCustomer'
 
 
 const Stack = createNativeStackNavigator()
@@ -55,11 +57,15 @@ const Stack = createNativeStackNavigator()
   // return <AboutUs/>
   // return <TermsNCondition/>
   //return <CreateSales/>
-  return <SalesDetails/>
+  //return <SalesDetails/>
   //return <SearchCustomers/>
   //return <CustomerAdded/>
   //return <AddPayment/>
   //return <AddProducts/>
+  //return <SearchProducts/>
+  //return <ReviewOrder/>
+  //return <AddCustomers/>
+  //return <AddPayment/>
 
   // return (
   //   <NavigationContainer>
@@ -68,15 +74,24 @@ const Stack = createNativeStackNavigator()
   //       <Stack.Screen name = "OnBoarding2" component={OnBoarding2}/>
   //       <Stack.Screen name = "OnBoarding3" component={OnBoarding3}/>
   //       <Stack.Screen name = "LogIn" component={Login}/>
-  //       <Stack.Screen name="Dashboard" component={DashboardEmpty}/>
-  //       <Stack.Screen name="Dashboard2" component={DashboardFilled}/>
+  //       <Stack.Screen name = "Dashboard" component={DashboardEmpty}/>
+  //       <Stack.Screen name = "Dashboard2" component={DashboardFilled}/>
   //       <Stack.Screen name = "ForgotPassword" component={ForgotPassword1}/>
   //       <Stack.Screen name = "ForgotPassword2" component={ForgotPassword2}/>
   //       <Stack.Screen name = "ChangePassword" component={ChangePassword2}/>
   //       <Stack.Screen name = "Notifications" component={Notifications}/>
+  //       <Stack.Screen name = "Profile" component={Profile}/>
+  //       <Stack.Screen name = "SalesDetail" component={SalesDetails}/>
+  //       <Stack.Screen name = "CreateSales" component={CreateSales}/>
+  //       <Stack.Screen name = "AddProducts" component={AddProducts}/>
+  //       <Stack.Screen name = "AddCustomers" component={AddCustomers}/>
+  //       <Stack.Screen name = "ReviewOrder" component={ReviewOrder}/>
   //     </Stack.Navigator>
   //   </NavigationContainer>
   // )
+
+  //return <SearchCustomers/>
+  return <AddCustomers/>
 
   // return (
   //   <NavigationContainer>

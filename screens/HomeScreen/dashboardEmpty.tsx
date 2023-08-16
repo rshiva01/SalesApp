@@ -7,10 +7,12 @@ import { NavigationContainer } from '@react-navigation/native'
 const AvatarNBell = ({navigation}:any) => {
     return(
         <View style={styles.container3}>
-            <View style = {styles.avatarContainer}>
-                <Avatar.Image size={31} style={styles.avatar} source={require('../../assets/avatarProfilePhoto.png')} />
-                <Text style = {styles.avatarText} >Welcome back, Nick!</Text>
-            </View>
+            <TouchableOpacity>
+                <View style = {styles.avatarContainer}>
+                    <Avatar.Image size={31} style={styles.avatar} source={require('../../assets/avatarProfilePhoto.png')}/>
+                    <Text style = {styles.avatarText} >Welcome back, Nick!</Text>
+                </View>
+            </TouchableOpacity>
             <View>
                 <TouchableOpacity>
                     <IconButton icon={require('../../assets/bellIcon.png')} onPress={()=>{navigation.navigate('Notifications')}}></IconButton>
@@ -42,7 +44,7 @@ type SalesProps = {
     productSold: string
 }
 
-const SalesFigBox = (props: SalesProps) => {
+const SalesFigBox = ({navigation}:any ,props: SalesProps) => {
     return(
         <View style = {styles.salesFigContainer}>
             <View style = {styles.container4} >
@@ -63,8 +65,10 @@ const SalesFigBox = (props: SalesProps) => {
             </View>
             <Divider theme={{colors:{primary:'#F6B100'}}}/>
             <View style = {{flex:1, flexDirection:'row', justifyContent:'center'}}>
-                <Text style = {{color:'#D5EAF1',paddingTop:10}} >View Report</Text>
-                <IconButton icon={require('../../assets/arrowIcon.png')} style = {{paddingBottom:10}} ></IconButton>
+                <TouchableOpacity style = {{flexDirection:'row', justifyContent:'center'}} onPress={()=>{navigation.navigate('SalesDetails')}}>
+                    <Text style = {{color:'#D5EAF1',paddingTop:10}} >View Report</Text>
+                    <IconButton icon={require('../../assets/arrowIcon.png')} style = {{paddingBottom:10}} ></IconButton>
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -108,6 +112,7 @@ const styles =  StyleSheet.create ({
     },
     container3:{
         flexDirection:'row',
+        justifyContent:'space-between'
         //backgroundColor:'#FFFFFF',
     },
     avatar:{

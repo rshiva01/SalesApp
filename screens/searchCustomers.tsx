@@ -1,31 +1,32 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { Button, Divider, IconButton, Searchbar } from "react-native-paper";
-import BottomSheet from "@gorhom/bottom-sheet/lib/typescript/components/bottomSheet/BottomSheet";
+import { Button, Divider, IconButton} from "react-native-paper";
+//import SearchBar from '@rneui/themed'
+//import BottomSheet from "@gorhom/bottom-sheet/lib/typescript/components/bottomSheet/BottomSheet";
 
-const CustomerDetailBottomSheet = () => {
-    const bottomSheetRef = useRef<BottomSheet>(null)
-    const snapPoints = useMemo(()=>['25%,50%'],[])
-    const handleSheetChanges = useCallback((index: number) => {
-        console.log('handleSheetChanges', index);
-      }, []);
-    return(
-        <View>
-            <BottomSheet
-                ref={bottomSheetRef}
-                index={1}
-                snapPoints={snapPoints}
-                onChange={handleSheetChanges}
-            >
-                <View>
-                    <View></View>
-                </View>
-            </BottomSheet>
-        </View>
-    )
-}
+// const CustomerDetailBottomSheet = () => {
+//     const bottomSheetRef = useRef<BottomSheet>(null)
+//     const snapPoints = useMemo(()=>['25%,50%'],[])
+//     const handleSheetChanges = useCallback((index: number) => {
+//         console.log('handleSheetChanges', index);
+//       }, []);
+//     return(
+//         <View>
+//             <BottomSheet
+//                 ref={bottomSheetRef}
+//                 index={1}
+//                 snapPoints={snapPoints}
+//                 onChange={handleSheetChanges}
+//             >
+//                 <View>
+//                     <View></View>
+//                 </View>
+//             </BottomSheet>
+//         </View>
+//     )
+// }
 
-const SearchCustomers = () => {
+const SearchCustomers = ({navigation}:any) => {
     return(
         <View style = {styles.mainContainer}>
             <View style = {{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}} >
@@ -44,7 +45,7 @@ const SearchCustomers = () => {
                 </View>
                 <View style = {{flexDirection:'row', alignItems:'center', justifyContent:"space-between", paddingTop:10}}>
                     <Text style = {{color:'#F6B100', fontSize:32, fontWeight:'bold'}}>8</Text>
-                    <Button buttonColor="#2A677A" style={{borderRadius:4}} labelStyle={{color:'#F6B100'}}>ADD CUSTOMER</Button>
+                    <Button buttonColor="#2A677A" style={{borderRadius:4}} labelStyle={{color:'#F6B100'}} onPress={()=>{navigation.navigate('AddCustomers')}}>ADD CUSTOMER</Button>
                 </View>
             </View>
             <View style = {{backgroundColor:'#012E3C', borderRadius:15, paddingHorizontal:15}} >
@@ -54,7 +55,7 @@ const SearchCustomers = () => {
                         <Text style = {{color:'#FFFFFF', fontSize:10}} >XYZ enterprize</Text>
                     </View>
                    <View style = {{flexDirection:'row', justifyContent:'space-around'}}>
-                   <Button style = {styles.viewDetailButtonStyle} labelStyle = {styles.viewDetailButtonLabelStyle}>View Detail</Button>
+                   <Button style = {styles.viewDetailButtonStyle} labelStyle = {styles.viewDetailButtonLabelStyle} onPress={()=>{navigation.navigate('SalesDetail')}}>View Detail</Button>
                     <Button labelStyle = {styles.viewDetailButtonLabelStyle} style = {styles.createSalesButtonStyle}>Create Sales</Button>
                    </View>
                 </View>
@@ -65,8 +66,8 @@ const SearchCustomers = () => {
                         <Text style = {{color:'#FFFFFF', fontSize:10}} >XYZ enterprize</Text>
                     </View>
                    <View style = {{flexDirection:'row', justifyContent:'space-around'}}>
-                   <Button style = {styles.viewDetailButtonStyle} labelStyle = {styles.viewDetailButtonLabelStyle}>View Detail</Button>
-                    <Button labelStyle = {styles.viewDetailButtonLabelStyle} style = {styles.createSalesButtonStyle}>Create Sales</Button>
+                   <Button style = {styles.viewDetailButtonStyle} labelStyle = {styles.viewDetailButtonLabelStyle} onPress={()=>{navigation.navigate('SalesDetail')}}>View Detail</Button>
+                    <Button labelStyle = {styles.viewDetailButtonLabelStyle} style = {styles.createSalesButtonStyle} onPress={()=>{navigation.navigate('CreateSales')}}>Create Sales</Button>
                    </View>
                 </View>
                 <Divider/><View style = {{flexDirection:'row', marginVertical:10, justifyContent:'space-between'}} >
@@ -75,8 +76,8 @@ const SearchCustomers = () => {
                         <Text style = {{color:'#FFFFFF', fontSize:10}} >XYZ enterprize</Text>
                     </View>
                    <View style = {{flexDirection:'row', justifyContent:'space-around'}}>
-                   <Button style = {styles.viewDetailButtonStyle} labelStyle = {styles.viewDetailButtonLabelStyle}>View Detail</Button>
-                    <Button labelStyle = {styles.viewDetailButtonLabelStyle} style = {styles.createSalesButtonStyle}>Create Sales</Button>
+                   <Button style = {styles.viewDetailButtonStyle} labelStyle = {styles.viewDetailButtonLabelStyle} onPress={()=>{navigation.navigate('SalesDetail')}}>View Detail</Button>
+                    <Button labelStyle = {styles.viewDetailButtonLabelStyle} style = {styles.createSalesButtonStyle} onPress={()=>{navigation.navigate('CreateSales')}}>Create Sales</Button>
                    </View>
                 </View>
                 <Divider/><View style = {{flexDirection:'row', marginVertical:10, justifyContent:'space-between'}} >
@@ -85,8 +86,8 @@ const SearchCustomers = () => {
                         <Text style = {{color:'#FFFFFF', fontSize:10}} >XYZ enterprize</Text>
                     </View>
                    <View style = {{flexDirection:'row', justifyContent:'space-around'}}>
-                   <Button style = {styles.viewDetailButtonStyle} labelStyle = {styles.viewDetailButtonLabelStyle}>View Detail</Button>
-                    <Button labelStyle = {styles.viewDetailButtonLabelStyle} style = {styles.createSalesButtonStyle}>Create Sales</Button>
+                   <Button style = {styles.viewDetailButtonStyle} labelStyle = {styles.viewDetailButtonLabelStyle} onPress={()=>{navigation.navigate('SalesDetail')}}>View Detail</Button>
+                    <Button labelStyle = {styles.viewDetailButtonLabelStyle} style = {styles.createSalesButtonStyle} onPress={()=>{navigation.navigate('CreateSales')}}>Create Sales</Button>
                    </View>
                 </View>
                 <Divider/>
@@ -110,10 +111,11 @@ const styles = StyleSheet.create({
         height:18,
         width: 67,
         borderRadius: 5,
+        marginRight: 10
     },
     viewDetailButtonLabelStyle:{
         color:'#F6B100',
-        fontSize:10
+        fontSize:10,
     },
     createSalesButtonStyle:{
         borderWidth:1,
@@ -121,5 +123,6 @@ const styles = StyleSheet.create({
         height:18,
         width: 67,
         borderRadius:5,
+        backgroundColor:"#2A677A"
     },
 })    

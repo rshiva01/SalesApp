@@ -1,45 +1,45 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 
-type SkipButtonProps = {
-    onPress: onPress
-}
-
-const SkipButton = () => {
-    return(
-        <View></View>
-    )
-}
-
-const OnBoarding = () => {
-    return(
-        <View></View>
-    )
-}
-
-// const OnBoarding1 = ({navigation}:any) => {
-//   return (
-//     <View style={styles.container} >
-//         {/* <SkipButton skipPress = {navigation.navigate('OnBoarding3')}/> */}
-//         <TouchableOpacity style={styles.skipButton} onPress={()=>{navigation.navigate('OnBoarding3')}}>
-//             <Text style={styles.skipText} >Skip</Text>
-//         </TouchableOpacity>
-//         <Image source={require('../assets/MainIllustration.png')} resizeMode='contain' style={styles.image}/>
-//         {/* <Container nextPress = {navigation.navigate('OnBoarding2')} content = "Track Your Sales The Smart{'\n'}Way With Switch Mauzo"/> */}
-//         <View style={styles.container2}>
-//             <View style={styles.container3} >
-//                 <Text style={styles.text} >onBoarding1</Text>
-//                 {/* Track Your Sales The Smart{'\n'}Way With Switch Mauzo */}
-//             </View>
-//             <TouchableOpacity style={styles.nextButton} onPress={() => {navigation.navigate('OnBoarding2')}}>
-//                 <Text style={styles.nextText} >Next</Text>
-//             </TouchableOpacity>
-//         </View>
-//     </View> 
-//   )
+// type SkipButtonProps = {
+//     onPress: onPress
 // }
 
-export default OnBoarding
+// const SkipButton = () => {
+//     return(
+//         <View></View>
+//     )
+// }
+
+// const OnBoarding = () => {
+//     return(
+//         <View></View>
+//     )
+// }
+
+const OnBoarding1 = ({navigation}:any) => {
+  return (
+    <View style={styles.container} >
+        {/* <SkipButton skipPress = {navigation.navigate('OnBoarding3')}/> */}
+        <TouchableOpacity style={styles.skipButton} onPress={()=>{navigation.navigate('OnBoarding3')}}>
+            <Text style={styles.skipText} >Skip</Text>
+        </TouchableOpacity>
+        <Image source={require('../assets/MainIllustration.png')} resizeMode='contain' style={styles.image}/>
+        {/* <Container nextPress = {navigation.navigate('OnBoarding2')} content = "Track Your Sales The Smart{'\n'}Way With Switch Mauzo"/> */}
+        <View style={styles.container2}>
+            <View style={styles.container3} >
+                <Text style={styles.text} >onBoarding1</Text>
+                {/* Track Your Sales The Smart{'\n'}Way With Switch Mauzo */}
+            </View>
+            <TouchableOpacity style={styles.nextButton} onPress={() => {navigation.navigate('OnBoarding2')}}>
+                <Text style={styles.nextText} >Next</Text>
+            </TouchableOpacity>
+        </View>
+    </View> 
+  )
+}
+
+export default OnBoarding1
 
 const styles = StyleSheet.create({
     container: {flex:1, backgroundColor:'#012E3C', paddingTop:20,},
