@@ -1,6 +1,7 @@
+import {any} from 'prop-types';
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {Button, Divider, IconButton} from 'react-native-paper';
+import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
 //import SearchBar from '@rneui/themed'
 //import BottomSheet from "@gorhom/bottom-sheet/lib/typescript/components/bottomSheet/BottomSheet";
 
@@ -27,6 +28,8 @@ import {Button, Divider, IconButton} from 'react-native-paper';
 // }
 
 const SearchCustomers = ({navigation}: any) => {
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const onChangeSearch = (query: any) => setSearchQuery(query);
   return (
     <View style={styles.mainContainer}>
       <View
@@ -44,6 +47,21 @@ const SearchCustomers = ({navigation}: any) => {
           <Text style={{color: '#F6B100'}}>Search Customers</Text>
         </View>
         <Button labelStyle={{color: '#F6B100', fontSize: 14}}>Cancel</Button>
+      </View>
+      <View>
+        <Searchbar
+          placeholder="Search by customer name, Email Id"
+          placeholderTextColor={'#D5EAF1'}
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+          mode="view"
+          icon={require('../assets/searchButtonIcon.png')}
+          style={styles.searchBar}
+          showDivider={false}
+          inputStyle={styles.placeHolder}
+          theme={{colors: {primary: '#D5EAF1'}}}
+          iconColor="#2A677A"
+        />
       </View>
       <View
         style={{
@@ -250,5 +268,15 @@ const styles = StyleSheet.create({
     width: 67,
     borderRadius: 5,
     backgroundColor: '#2A677A',
+  },
+  searchBar: {
+    backgroundColor: '#012E3C',
+    borderRadius: 15,
+    height: 44,
+    alignItems: 'center',
+  },
+  placeHolder: {
+    color: '#D5EAF1',
+    alignSelf: 'center',
   },
 });
