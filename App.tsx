@@ -34,7 +34,7 @@ const Stack = createNativeStackNavigator()
   //return <OnBoarding1/>
   //return <OnBoarding2/>
   //return <OnBoarding3/>
-  //return <Login/>
+  return <Login/>
   //return <NewLogIn/>
   //return <DashboardEmpty/>
 
@@ -91,7 +91,7 @@ const Stack = createNativeStackNavigator()
   // )
 
   //return <SearchCustomers/>
-  return <AddCustomers/>
+  //return <AddCustomers/>
 
   // return (
   //   <NavigationContainer>
