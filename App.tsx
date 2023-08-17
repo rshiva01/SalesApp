@@ -26,6 +26,7 @@ import ReviewOrder from './screens/reviewOrder'
 import AddPayment from './screens/addPayment'
 import SearchProducts from './screens/searchProduct'
 import AddCustomers from './screens/addCustomer'
+import NewLogIn from './screens/newLogIn'
 
 
 const Stack = createNativeStackNavigator()
@@ -35,7 +36,6 @@ const Stack = createNativeStackNavigator()
   //return <OnBoarding2/>
   //return <OnBoarding3/>
   //return <Login/>
-  //return <NewLogIn/>
   //return <DashboardEmpty/>
 
 
@@ -46,7 +46,7 @@ const Stack = createNativeStackNavigator()
   // )
 
 
-  //return <DashboardFilled/>
+  return <DashboardFilled/>
   //return <ForgotPassword1/>
   //return <ForgotPassword2/>
   //return <ChangePassword2/>
@@ -58,7 +58,7 @@ const Stack = createNativeStackNavigator()
   // return <TermsNCondition/>
   //return <CreateSales/>
   //return <SalesDetails/>
-  return <SearchCustomers/>
+  //return <SearchCustomers/>
   //return <CustomerAdded/>
   //return <AddPayment/>
   //return <AddProducts/>

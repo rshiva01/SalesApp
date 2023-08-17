@@ -252,8 +252,6 @@ const styles = StyleSheet.create({
   viewDetailButtonStyle: {
     borderWidth: 1,
     borderColor: '#2A677A',
-    height: 18,
-    width: 67,
     borderRadius: 5,
     marginRight: 10,
   },
@@ -264,8 +262,6 @@ const styles = StyleSheet.create({
   createSalesButtonStyle: {
     borderWidth: 1,
     borderColor: '#2A677A',
-    height: 18,
-    width: 67,
     borderRadius: 5,
     backgroundColor: '#2A677A',
   },

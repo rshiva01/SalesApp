@@ -18,7 +18,7 @@ import {
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SalesSummary, SalesFigBox} from './dashboardEmpty';
 import BottomTab from '../../navigation/bottomTab';
-import {useTranslation} from '../../localization/'
+import {useTranslation} from '../../localization/';
 
 type SalesProps = {
   name: string;
@@ -82,7 +82,10 @@ const SalesEntry = (props: SalesProps) => {
         <Text style={{color: '#D5EAF1', fontSize: 12, fontStyle: 'italic'}}>
           {hour}:{min}
         </Text>
-        <IconButton icon={require('../../assets/arrowIcon.png')} />
+        <IconButton
+          icon={require('../../assets/arrowIcon.png')}
+          iconColor="#78ADBE"
+        />
         <Text style={{color: '#D5EAF1', fontSize: 12}}>ID: 678900</Text>
       </View>
       <View
@@ -105,52 +108,98 @@ const SalesEntry = (props: SalesProps) => {
 };
 export {SalesEntry};
 
-const DashboardFilled = ({navigation}:any) => {
+const DashboardFilled = ({navigation}: any) => {
   const {t} = useTranslation();
   return (
     <View style={styles.container}>
       <View style={styles.container3}>
-          <TouchableOpacity onPress={() => {navigation.navigate('Profile')}}>
-              <View style = {styles.avatarContainer}>
-                  <Avatar.Image size={31} style={styles.avatar} source={require('../../assets/avatarProfilePhoto.png')}/>
-                  <Text style = {styles.avatarText} >Welcome back, Nick!</Text>
-              </View>
-          </TouchableOpacity>
-          <View>
-              <TouchableOpacity>
-                  <IconButton icon={require('../../assets/bellIcon.png')} onPress={() => {navigation.navigate('Notifications')}}></IconButton>
-              </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Profile');
+          }}>
+          <View style={styles.avatarContainer}>
+            <Avatar.Image
+              size={31}
+              style={styles.avatar}
+              source={require('../../assets/avatarProfilePhoto.png')}
+            />
+            <Text style={styles.avatarText}>Welcome back, Nick!</Text>
           </View>
+        </TouchableOpacity>
+        <View>
+          <TouchableOpacity>
+            <IconButton
+              icon={require('../../assets/bellIcon.png')}
+              onPress={() => {
+                navigation.navigate('Notifications');
+              }}
+              iconColor="#F6B100"
+              size={20}></IconButton>
+          </TouchableOpacity>
+        </View>
       </View>
       <SalesSummary />
-      <View style = {styles.salesFigContainer}>
-            <View style = {styles.container4} >
-                <View>
-                    <Text style = {{color:'#FFFFFF',fontSize:14}}>Total Sales</Text>
-                    <View style = {{flex:1, flexDirection:'row',paddingTop:5}}>
-                        <Image source={require('../../assets/salesGraph.png')} resizeMode='contain'/>
-                        <Text style = {{color:'#F6B100', fontSize:18,paddingVertical:2,paddingHorizontal:5}} >TZS 12,450</Text>
-                    </View>
-                </View>
-                <View>
-                    <Text style = {{color:'#FFFFFF',fontSize:14}} >Product Sold</Text>
-                    <View style = {{flex:1, flexDirection:'row',paddingTop:5}}>
-                        <Image source={require('../../assets/productIcon.png')} resizeMode='contain' />
-                        <Text style = {{color:'#F6B100', fontSize:18,paddingVertical:2,paddingHorizontal:5}} >20</Text>
-                    </View>
-                </View>
+      <View style={styles.salesFigContainer}>
+        <View style={styles.container4}>
+          <View>
+            <Text style={{color: '#FFFFFF', fontSize: 14}}>Total Sales</Text>
+            <View style={{flex: 1, flexDirection: 'row', paddingTop: 5}}>
+              <Image
+                source={require('../../assets/salesGraph.png')}
+                resizeMode="contain"
+              />
+              <Text
+                style={{
+                  color: '#F6B100',
+                  fontSize: 18,
+                  paddingVertical: 2,
+                  paddingHorizontal: 5,
+                }}>
+                TZS 12,450
+              </Text>
             </View>
-            <Divider theme={{colors:{primary:'#F6B100'}}}/>
-            <View style = {{flex:1, flexDirection:'row', justifyContent:'center'}}>
-                <TouchableOpacity style = {{flexDirection:'row', justifyContent:'center'}} onPress={()=>{navigation.navigate('SalesDetail')}}>
-                    <Text style = {{color:'#D5EAF1',paddingTop:10}} >View Report</Text>
-                    <IconButton icon={require('../../assets/arrowIcon.png')} style = {{paddingBottom:10}} ></IconButton>
-                </TouchableOpacity>
+          </View>
+          <View>
+            <Text style={{color: '#FFFFFF', fontSize: 14}}>Product Sold</Text>
+            <View style={{flex: 1, flexDirection: 'row', paddingTop: 5}}>
+              <Image
+                source={require('../../assets/productIcon.png')}
+                resizeMode="contain"
+              />
+              <Text
+                style={{
+                  color: '#F6B100',
+                  fontSize: 18,
+                  paddingVertical: 2,
+                  paddingHorizontal: 5,
+                }}>
+                20
+              </Text>
             </View>
+          </View>
         </View>
+        <Divider theme={{colors: {primary: '#F6B100'}}} />
+        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
+          <TouchableOpacity
+            style={{flexDirection: 'row', justifyContent: 'center'}}
+            onPress={() => {
+              navigation.navigate('SalesDetail');
+            }}>
+            <Text style={{color: '#D5EAF1', paddingTop: 10}}>View Report</Text>
+            <IconButton
+              icon={require('../../assets/arrowIcon.png')}
+              style={{paddingBottom: 10}}
+              iconColor="#D5EAF1"></IconButton>
+          </TouchableOpacity>
+        </View>
+      </View>
       <View style={styles.yourSales}>
         <Text style={styles.yourSalesText}>Your Sales</Text>
-        <TouchableOpacity style={styles.createSalesButton} onPress={()=>{navigation.navigate('CreateSales')}}>
+        <TouchableOpacity
+          style={styles.createSalesButton}
+          onPress={() => {
+            navigation.navigate('CreateSales');
+          }}>
           <Text style={styles.buttonText}>Create Sales</Text>
         </TouchableOpacity>
       </View>
@@ -191,7 +240,13 @@ const DashboardFilled = ({navigation}:any) => {
           ad="0.0"
         />
       </ScrollView>
-      <FAB style={styles.fab} label="New Customer" onPress={() => {navigation.navigate('AddCustomers')}}/>
+      <FAB
+        style={styles.fab}
+        label="My Customers"
+        onPress={() => {
+          navigation.navigate('AddCustomers');
+        }}
+      />
     </View>
   );
 };
@@ -204,46 +259,46 @@ const styles = StyleSheet.create({
     backgroundColor: '#01232D',
     paddingTop: 20,
   },
-  container3:{
-    flexDirection:'row',
-    justifyContent:'space-between'
+  container3: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     //backgroundColor:'#FFFFFF',
-},
-avatar:{
+  },
+  avatar: {
     borderWidth: 2,
     borderColor: '#F6B100',
     justifyContent: 'center',
     alignItems: 'center',
-},
-avatarText:{
+  },
+  avatarText: {
     color: '#F6B100',
     alignItems: 'center',
-    paddingLeft:10,
+    paddingLeft: 10,
     paddingVertical: 5,
-    alignSelf:'flex-start'
-},
-avatarContainer:{
-    flex:1,
-    flexDirection:'row',
-    padding:13,
+    alignSelf: 'flex-start',
+  },
+  avatarContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 13,
     //backgroundColor:'#FFFFFF'
-},
-salesFigContainer: {
-        borderWidth:1,
-        borderColor:'#F6B100',
-        height: 125,
-        width:341,
-        alignSelf:'center',
-        borderRadius: 15,
-        marginVertical:13
-    },
-    container4:{
-        flex:1,
-        flexDirection:'row',
-        marginVertical: 20,
-        marginHorizontal:30,
-        justifyContent:'space-between',
-    },
+  },
+  salesFigContainer: {
+    borderWidth: 1,
+    borderColor: '#F6B100',
+    height: 125,
+    width: 341,
+    alignSelf: 'center',
+    borderRadius: 15,
+    marginVertical: 13,
+  },
+  container4: {
+    flex: 1,
+    flexDirection: 'row',
+    marginVertical: 20,
+    marginHorizontal: 30,
+    justifyContent: 'space-between',
+  },
   yourSales: {
     //backgroundColor:'#FFFFFF',
     flexDirection: 'row',
@@ -296,5 +351,6 @@ salesFigContainer: {
     height: 38,
     textAlign: 'center',
     paddingVertical: 0,
+    justifyContent:'center'
   },
 });
