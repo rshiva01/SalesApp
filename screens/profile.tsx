@@ -58,17 +58,17 @@ const Profile = () => {
                 <List.Section title = ''>
                         <List.Accordion
                             title = 'Settings'
-                            left={props => <List.Icon {...props} icon={require('../assets/settingIcon.png')}/>}
+                            left={props => <List.Icon {...props} icon={require('../assets/settingIcon.png')} color='#2A677A'/>}
                             style = {styles.listStyle}
                             titleStyle = {styles.listTitleStyle}
                             >
-                            <List.Item title = 'Reset Password' titleStyle = {styles.listItemTitleStyle} />
+                            <List.Item title = 'Reset Password' titleStyle = {styles.listItemTitleStyle}/>
                             <List.Item title = 'Notifications' titleStyle = {styles.listItemTitleStyle}/>
                             <List.Item title = 'App Lock' titleStyle = {styles.listItemTitleStyle}/>
                         </List.Accordion>
                         <List.Accordion
                             title = 'Help & Support'
-                            left={props => <List.Icon {...props} icon={require('../assets/help&supportIcon.png')}/>}
+                            left={props => <List.Icon {...props} icon={require('../assets/help&supportIcon.png')} color='#2A677A'/>}
                             style = {styles.listStyle}
                             titleStyle = {styles.listTitleStyle}
                             >
@@ -78,21 +78,21 @@ const Profile = () => {
                         </List.Accordion>
                         <List.Accordion
                             title = 'About Us'
-                            left={props => <List.Icon {...props} icon={require('../assets/aboutUsIcon.png')}/>}
+                            left={props => <List.Icon {...props} icon={require('../assets/aboutUsIcon.png')} color='#2A677A'/>}
                             style = {styles.listStyle}
                             titleStyle = {styles.listTitleStyle}
                             >
                         </List.Accordion>
                         <List.Accordion
                             title = 'Terms & Condition'
-                            left={props => <List.Icon {...props} icon={require('../assets/terms&ConditionIcon.png')}/>}
+                            left={props => <List.Icon {...props} icon={require('../assets/terms&ConditionIcon.png')} color='#2A677A'/>}
                             style = {styles.listStyle}
                             titleStyle = {styles.listTitleStyle}
                             >
                         </List.Accordion>
                         <List.Accordion
                             title = 'Logout'
-                            left={props => <List.Icon {...props} icon={require('../assets/logoutIcon.png')}/>}
+                            left={props => <List.Icon {...props} icon={require('../assets/logoutIcon.png')} color='#2A677A'/>}
                             style = {styles.listStyle}
                             titleStyle = {styles.listTitleStyle}
                             >

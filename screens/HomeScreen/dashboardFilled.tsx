@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {
-  Button,
   StyleSheet,
   Text,
   View,
@@ -10,14 +9,11 @@ import {
 } from 'react-native';
 import {
   Avatar,
-  BottomNavigation,
   Divider,
   FAB,
   IconButton,
 } from 'react-native-paper';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {SalesSummary, SalesFigBox} from './dashboardEmpty';
-import BottomTab from '../../navigation/bottomTab';
+import {SalesSummary} from './dashboardEmpty';
 import {useTranslation} from '../../localization/';
 
 type SalesProps = {
