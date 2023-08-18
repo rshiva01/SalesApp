@@ -73,7 +73,8 @@ const Stack = createNativeStackNavigator()
 
   // return (
   //   <NavigationContainer>
-  //     <Stack.Navigator screenOptions={{headerShown: false}}>
+  //     <BottomTab/>
+  //     {/* <Stack.Navigator screenOptions={{headerShown: false}}> */}
   //       <Stack.Screen name = "OnBoarding1" component={OnBoarding1}/>
   //       <Stack.Screen name = "OnBoarding2" component={OnBoarding2}/>
   //       <Stack.Screen name = "OnBoarding3" component={OnBoarding3}/>
@@ -90,7 +91,7 @@ const Stack = createNativeStackNavigator()
   //       <Stack.Screen name = "AddProducts" component={AddProducts}/>
   //       <Stack.Screen name = "AddCustomers" component={AddCustomers}/>
   //       <Stack.Screen name = "ReviewOrder" component={ReviewOrder}/>
-  //     </Stack.Navigator>
+  //     {/* </Stack.Navigator> */}
   //   </NavigationContainer>
   // )
 

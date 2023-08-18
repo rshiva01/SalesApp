@@ -347,6 +347,7 @@ const styles = StyleSheet.create({
     height: 38,
     textAlign: 'center',
     paddingVertical: 0,
-    justifyContent:'center'
+    justifyContent:'center',
+    position: 'absolute', bottom: 80, right: 10
   },
 });
