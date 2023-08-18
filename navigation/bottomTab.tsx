@@ -11,7 +11,6 @@ const CustomMySalesButton = () => {
     return(
         <TouchableOpacity
             style = {{
-                top: -30,
                 justifyContent: 'center',
                 alignItems: 'center'
             }}

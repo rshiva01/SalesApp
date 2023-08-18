@@ -26,6 +26,10 @@ import ReviewOrder from './screens/reviewOrder'
 import AddPayment from './screens/addPayment'
 import SearchProducts from './screens/searchProduct'
 import AddCustomers from './screens/addCustomer'
+import NewLogIn from './screens/newLogIn'
+import Profile2 from './screens/editProfile'
+import ChooseCustomer from './screens/chooseCustomer'
+import EditProfile from './screens/editProfile'
 
 
 const Stack = createNativeStackNavigator()
@@ -35,7 +39,6 @@ const Stack = createNativeStackNavigator()
   //return <OnBoarding2/>
   //return <OnBoarding3/>
   //return <Login/>
-  //return <NewLogIn/>
   //return <DashboardEmpty/>
 
 
@@ -51,17 +54,20 @@ const Stack = createNativeStackNavigator()
   //return <ForgotPassword2/>
   //return <ChangePassword2/>
   //return <Profile/>
+  //return <Profile2/>
   //return <Notifications/>
   // return <AppLock/>
   //return <FAQ/>
   // return <AboutUs/>
   // return <TermsNCondition/>
   //return <CreateSales/>
+  //return <ChooseCustomer/>
   //return <SalesDetails/>
   //return <SearchCustomers/>
+  //return <EditProfile/>
   //return <CustomerAdded/>
   //return <AddPayment/>
-  //return <AddProducts/>
+  return <AddProducts/>
   //return <SearchProducts/>
   //return <ReviewOrder/>
   //return <AddCustomers/>
