@@ -27,6 +27,7 @@ import AddPayment from './screens/addPayment'
 import SearchProducts from './screens/searchProduct'
 import AddCustomers from './screens/addCustomer'
 import NewLogIn from './screens/newLogIn'
+import Profile2 from './screens/editProfile'
 
 
 const Stack = createNativeStackNavigator()
@@ -50,7 +51,8 @@ const Stack = createNativeStackNavigator()
   //return <ForgotPassword1/>
   //return <ForgotPassword2/>
   //return <ChangePassword2/>
-  return <Profile/>
+  //return <Profile/>
+  return <Profile2/>
   //return <Notifications/>
   // return <AppLock/>
   //return <FAQ/>
