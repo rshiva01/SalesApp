@@ -18,12 +18,13 @@ const ChooseCustomer = () => {
         onChange={handleSheetChanges}
       >
         <View>
-          <Text>Awesome</Text>
+          <Text style = {{color:'#FFFFFF'}}>Awesome</Text>
         </View>
       </BottomSheet>
     </View>
   )
 }
+export {ChooseCustomer}
 
 const SearchCustomers = ({navigation}: any) => {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -130,10 +131,9 @@ const SearchCustomers = ({navigation}: any) => {
             <Button
               style={styles.viewDetailButtonStyle}
               labelStyle={styles.viewDetailButtonLabelStyle}
-              onPress={() => {
-                // navigation.navigate('SalesDetail')
-                <ChooseCustomer/>
-              }}>
+              onPress={ChooseCustomer}
+              >
+                {/* // navigation.navigate('SalesDetail') */}
               View Detail
             </Button>
             <Button
