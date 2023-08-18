@@ -1,31 +1,29 @@
-import {any} from 'prop-types';
-import React from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
-//import SearchBar from '@rneui/themed'
-//import BottomSheet from "@gorhom/bottom-sheet/lib/typescript/components/bottomSheet/BottomSheet";
+import BottomSheet from '@gorhom/bottom-sheet';
 
-// const CustomerDetailBottomSheet = () => {
-//     const bottomSheetRef = useRef<BottomSheet>(null)
-//     const snapPoints = useMemo(()=>['25%,50%'],[])
-//     const handleSheetChanges = useCallback((index: number) => {
-//         console.log('handleSheetChanges', index);
-//       }, []);
-//     return(
-//         <View>
-//             <BottomSheet
-//                 ref={bottomSheetRef}
-//                 index={1}
-//                 snapPoints={snapPoints}
-//                 onChange={handleSheetChanges}
-//             >
-//                 <View>
-//                     <View></View>
-//                 </View>
-//             </BottomSheet>
-//         </View>
-//     )
-// }
+const ChooseCustomer = () => {
+  const bottomSheetRef = useRef<BottomSheet>(null);
+  const snapPoints = useMemo(() => ['25%', '50%'], []);
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
+  return(
+    <View style = {styles.bottomSheetMainContainer}>
+       <BottomSheet
+        ref={bottomSheetRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
+      >
+        <View>
+          <Text>Awesome</Text>
+        </View>
+      </BottomSheet>
+    </View>
+  )
+}
 
 const SearchCustomers = ({navigation}: any) => {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -133,7 +131,8 @@ const SearchCustomers = ({navigation}: any) => {
               style={styles.viewDetailButtonStyle}
               labelStyle={styles.viewDetailButtonLabelStyle}
               onPress={() => {
-                navigation.navigate('SalesDetail');
+                // navigation.navigate('SalesDetail')
+                <ChooseCustomer/>
               }}>
               View Detail
             </Button>
@@ -275,4 +274,7 @@ const styles = StyleSheet.create({
     color: '#D5EAF1',
     alignSelf: 'center',
   },
+  bottomSheetMainContainer:{
+
+  }
 });

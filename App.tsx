@@ -28,6 +28,7 @@ import SearchProducts from './screens/searchProduct'
 import AddCustomers from './screens/addCustomer'
 import NewLogIn from './screens/newLogIn'
 import Profile2 from './screens/editProfile'
+import ChooseCustomer from './screens/chooseCustomer'
 
 
 const Stack = createNativeStackNavigator()
@@ -52,15 +53,16 @@ const Stack = createNativeStackNavigator()
   //return <ForgotPassword2/>
   //return <ChangePassword2/>
   //return <Profile/>
-  return <Profile2/>
+  //return <Profile2/>
   //return <Notifications/>
   // return <AppLock/>
   //return <FAQ/>
   // return <AboutUs/>
   // return <TermsNCondition/>
   //return <CreateSales/>
+  //return <ChooseCustomer/>
   //return <SalesDetails/>
-  //return <SearchCustomers/>
+  return <SearchCustomers/>
   //return <CustomerAdded/>
   //return <AddPayment/>
   //return <AddProducts/>
