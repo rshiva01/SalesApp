@@ -29,6 +29,7 @@ import AddCustomers from './screens/addCustomer'
 import NewLogIn from './screens/newLogIn'
 import Profile2 from './screens/editProfile'
 import ChooseCustomer from './screens/chooseCustomer'
+import EditProfile from './screens/editProfile'
 
 
 const Stack = createNativeStackNavigator()
@@ -62,10 +63,11 @@ const Stack = createNativeStackNavigator()
   //return <CreateSales/>
   //return <ChooseCustomer/>
   //return <SalesDetails/>
-  return <SearchCustomers/>
+  //return <SearchCustomers/>
+  //return <EditProfile/>
   //return <CustomerAdded/>
   //return <AddPayment/>
-  //return <AddProducts/>
+  return <AddProducts/>
   //return <SearchProducts/>
   //return <ReviewOrder/>
   //return <AddCustomers/>

@@ -64,6 +64,7 @@ const UnsecuredTextBox = (props: TextBoxProps) => {
       activeOutlineColor="#D5EAF1"
       placeholderTextColor="#D5EAF1"
       outlineStyle={styles.outline}
+      theme = {{colors:{primary:'#D5EAF1'}}}
     />
   );
 };
