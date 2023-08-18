@@ -1,4 +1,6 @@
 import React from 'react';
+import {StyleSheet, useColorScheme} from 'react-native';
+import Toast from 'react-native-toast-message';
 import Login from './screens/Login';
 import OnBoarding1 from './screens/onBoarding1';
 import OnBoarding2 from './screens/onBoarding2';
@@ -31,6 +33,16 @@ import Profile2 from './screens/editProfile';
 import ChooseCustomer from './screens/chooseCustomer';
 import EditProfile from './screens/editProfile';
 import AppNavigator from './navigators/AppNavigator';
+import {CustomLightTheme, CustomDarkTheme} from './theme/rn-paper';
+import {
+  DarkTheme as NavigationDarkTheme,
+  DefaultTheme as NavigationDefaultTheme,
+} from '@react-navigation/native';
+import merge from 'deepmerge';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
+import {PaperProvider, adaptNavigationTheme} from 'react-native-paper';
 
 const App = () => {
   //return <OnBoarding1/>
@@ -61,11 +73,37 @@ const App = () => {
   //return <ReviewOrder/>
   //return <AddCustomers/>
   //return <AddPayment/>
+  const isDarkMode = useColorScheme() === 'dark';
+  const {LightTheme, DarkTheme} = adaptNavigationTheme({
+    reactNavigationLight: NavigationDefaultTheme,
+    reactNavigationDark: NavigationDarkTheme,
+  });
+  const CombinedDefaultTheme = merge(LightTheme, CustomLightTheme);
+  const CombinedDarkTheme = merge(DarkTheme, CustomDarkTheme);
   return (
-    <NavigationContainer>
-      <AppNavigator />
-    </NavigationContainer>
+    <GestureHandlerRootView style={styles.flex1}>
+      <PaperProvider
+        theme={isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme}>
+        <NavigationContainer>
+          <BottomSheetModalProvider>
+            <SafeAreaProvider>
+              <SafeAreaView edges={['top']} style={styles.flex1}>
+                <AppNavigator
+                // linking={linking}
+                // initialState={initialNavigationState}
+                // onStateChange={onNavigationStateChange}
+                />
+              </SafeAreaView>
+              <Toast />
+            </SafeAreaProvider>
+          </BottomSheetModalProvider>
+        </NavigationContainer>
+      </PaperProvider>
+    </GestureHandlerRootView>
   );
 };
 
 export default App;
+const styles = StyleSheet.create({
+  flex1: {flex: 1},
+});

@@ -3,7 +3,6 @@ import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {Image, StyleSheet, View} from 'react-native';
 import Notifications from '../screens/Notifications';
-import {Text} from '@react-native-material/core';
 import HomeNavigator from './HomeNavigator';
 import SalesNavigator from './SalesNavigator';
 const Tab = createMaterialBottomTabNavigator();
@@ -11,22 +10,18 @@ const Tab = createMaterialBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
     <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarShowLabel: false,
-        tabBarStyle: {
-          position: 'absolute',
-          zIndex: 2,
-          backgroundColor: '#D5EAF1',
-          borderTopLeftRadius: 15,
-          borderTopRightRadius: 15,
-          height: 70,
-        },
-      }}>
+      // initialRouteName="Home"
+      shifting={true}
+      compact
+      // labeled={false}
+      // activeColor={colors.primary}
+      // inactiveColor={colors.black}
+    >
       <Tab.Screen
         name="Home"
         component={HomeNavigator}
         options={{
+          tabBarLabel: 'Home',
           tabBarIcon: () => (
             <View style={styles.center}>
               <Image
@@ -35,15 +30,15 @@ export default function BottomTabNavigator() {
                 width={26}
                 height={24}
               />
-              <Text style={styles.label}>Home</Text>
             </View>
           ),
         }}
       />
       <Tab.Screen
-        name="My Sales"
+        name="Sales"
         component={SalesNavigator}
         options={{
+          tabBarLabel: 'My Sales',
           tabBarIcon: () => (
             <View style={styles.center}>
               <Image
@@ -52,7 +47,6 @@ export default function BottomTabNavigator() {
                 width={26}
                 height={24}
               />
-              <Text style={styles.label}>My Sales</Text>
             </View>
           ),
         }}
@@ -61,6 +55,7 @@ export default function BottomTabNavigator() {
         name="Notification"
         component={Notifications}
         options={{
+          tabBarLabel: 'More',
           tabBarIcon: () => (
             <View style={styles.center}>
               <Image
@@ -69,7 +64,6 @@ export default function BottomTabNavigator() {
                 width={26}
                 height={24}
               />
-              <Text style={styles.label}>More</Text>
             </View>
           ),
         }}

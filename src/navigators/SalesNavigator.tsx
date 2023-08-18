@@ -17,7 +17,7 @@ export default function SalesNavigator() {
         navigationBarColor: 'white',
       }}>
       <Stack.Screen name="Dashboard2" component={DashboardFilled} />
-      <Stack.Screen name="SalesDetail" component={SalesDetails} />
+      <Stack.Screen name="SalesDetails" component={SalesDetails} />
       <Stack.Screen name="CreateSales" component={CreateSales} />
       <Stack.Screen name="AddProducts" component={AddProducts} />
       <Stack.Screen name="AddCustomers" component={AddCustomers} />

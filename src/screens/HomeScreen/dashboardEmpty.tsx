@@ -15,7 +15,7 @@ import {
   IconButton,
 } from 'react-native-paper';
 import BottomTab from '../../navigators/BottomTabNavigator';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 
 const AvatarNBell = ({navigation}: any) => {
   return (
@@ -36,7 +36,8 @@ const AvatarNBell = ({navigation}: any) => {
             icon={require('../../assets/bellIcon.png')}
             onPress={() => {
               navigation.navigate('Notifications');
-            }}></IconButton>
+            }}
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -67,7 +68,8 @@ type SalesProps = {
   productSold: string;
 };
 
-const SalesFigBox = ({navigation}: any, props: SalesProps) => {
+const SalesFigBox = (props: SalesProps) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.salesFigContainer}>
       <View style={styles.container4}>
@@ -118,7 +120,8 @@ const SalesFigBox = ({navigation}: any, props: SalesProps) => {
           <Text style={{color: '#D5EAF1', paddingTop: 10}}>View Report</Text>
           <IconButton
             icon={require('../../assets/arrowIcon.png')}
-            style={{paddingBottom: 10}}></IconButton>
+            style={{paddingBottom: 10}}
+          />
         </TouchableOpacity>
       </View>
     </View>
