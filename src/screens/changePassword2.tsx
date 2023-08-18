@@ -7,7 +7,7 @@ import {
   YellowText,
   UnsecuredTextBox,
   SecuredTextBox,
-} from './login';
+} from '../components/Inputs';
 
 const ChangePassword2 = ({navigation}: any) => {
   return (

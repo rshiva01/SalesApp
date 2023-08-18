@@ -1,32 +1,14 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Image, TouchableOpacity, View} from 'react-native';
-import DashboardEmpty from '../screens/HomeScreen/dashboardEmpty';
-import Notifications from '../screens/notifications';
-import DashboardFilled from '../screens/HomeScreen/dashboardFilled';
+/* eslint-disable react/no-unstable-nested-components */
+import React from 'react';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {Image, StyleSheet, View} from 'react-native';
+import Notifications from '../screens/Notifications';
 import {Text} from '@react-native-material/core';
+import HomeNavigator from './HomeNavigator';
+import SalesNavigator from './SalesNavigator';
+const Tab = createMaterialBottomTabNavigator();
 
-const Tab = createBottomTabNavigator();
-
-const CustomMySalesButton = () => {
-  return (
-    <TouchableOpacity
-      style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <View
-        style={{
-          width: 54,
-          height: 54,
-          borderRadius: 27,
-          backgroundColor: '#D5EAF1',
-        }}
-      />
-    </TouchableOpacity>
-  );
-};
-
-const BottomTab = () => {
+export default function BottomTabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -43,34 +25,34 @@ const BottomTab = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={DashboardEmpty}
+        component={HomeNavigator}
         options={{
-          tabBarIcon: ({focused}) => (
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          tabBarIcon: () => (
+            <View style={styles.center}>
               <Image
                 source={require('../assets/homeIcon.png')}
                 resizeMode="contain"
                 width={26}
                 height={24}
               />
-              <Text style={{fontSize: 12}}>Home</Text>
+              <Text style={styles.label}>Home</Text>
             </View>
           ),
         }}
       />
       <Tab.Screen
         name="My Sales"
-        component={DashboardFilled}
+        component={SalesNavigator}
         options={{
-          tabBarIcon: ({focused}) => (
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          tabBarIcon: () => (
+            <View style={styles.center}>
               <Image
                 source={require('../assets/mysalesIcon.png')}
                 resizeMode="contain"
                 width={26}
                 height={24}
               />
-              <Text style={{fontSize: 12}}>My Sales</Text>
+              <Text style={styles.label}>My Sales</Text>
             </View>
           ),
         }}
@@ -79,20 +61,26 @@ const BottomTab = () => {
         name="Notification"
         component={Notifications}
         options={{
-          tabBarIcon: ({focused}) => (
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          tabBarIcon: () => (
+            <View style={styles.center}>
               <Image
                 source={require('../assets/moreIcon.png')}
                 resizeMode="contain"
                 width={26}
                 height={24}
               />
-              <Text style={{fontSize: 12}}>More</Text>
+              <Text style={styles.label}>More</Text>
             </View>
           ),
         }}
       />
     </Tab.Navigator>
   );
-};
-export default BottomTab;
+}
+
+const styles = StyleSheet.create({
+  center: {alignItems: 'center', justifyContent: 'center'},
+  label: {
+    fontSize: 12,
+  },
+});

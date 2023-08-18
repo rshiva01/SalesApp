@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from './screens/login';
+import Login from './screens/Login';
 import OnBoarding1 from './screens/onBoarding1';
 import OnBoarding2 from './screens/onBoarding2';
 import OnBoarding3 from './screens/onBoarding3';
@@ -10,28 +10,27 @@ import DashboardFilled from './screens/HomeScreen/dashboardFilled';
 import ForgotPassword1 from './screens/forgotPassword1';
 import ForgotPassword2 from './screens/forgotPassword2';
 import ChangePassword2 from './screens/changePassword2';
-import Profile from './screens/profile';
-import Notifications from './screens/notifications';
-import BottomTab from './navigation/bottomTab';
+import Profile from './screens/Profile';
+import Notifications from './screens/Notifications';
+import BottomTab from './navigators/BottomTabNavigator';
 import AppLock from './screens/appLock';
 import FAQ from './screens/faq';
 import AboutUs from './screens/aboutUs';
-import TermsNCondition from './screens/terms&Condition';
+import TermsNCondition from './screens/TermsConditions';
 import CreateSales from './screens/createSales';
-import SalesDetails from './screens/salesDetails';
-import SearchCustomers from './screens/searchCustomers';
+import SalesDetails from './screens/SalesDetails';
+import SearchCustomers from './screens/SearchCustomers';
 import CustomerAdded from './screens/createSales';
 import AddProducts from './screens/addProducts';
-import ReviewOrder from './screens/reviewOrder';
+import ReviewOrder from './screens/ReviewOrder';
 import AddPayment from './screens/addPayment';
-import SearchProducts from './screens/searchProduct';
+import SearchProducts from './screens/SearchProduct';
 import AddCustomers from './screens/addCustomer';
-import NewLogIn from './screens/newLogIn';
+import NewLogIn from './screens/NewLogIn';
 import Profile2 from './screens/editProfile';
 import ChooseCustomer from './screens/chooseCustomer';
 import EditProfile from './screens/editProfile';
-
-const Stack = createNativeStackNavigator();
+import AppNavigator from './navigators/AppNavigator';
 
 const App = () => {
   //return <OnBoarding1/>
@@ -39,13 +38,6 @@ const App = () => {
   //return <OnBoarding3/>
   //return <Login/>
   //return <DashboardEmpty/>
-
-  // return(
-  //   <NavigationContainer>
-  //     <BottomTab/>
-  //   </NavigationContainer>
-  // )
-
   //return <DashboardFilled/>
   //return <ForgotPassword1/>
   //return <ForgotPassword2/>
@@ -69,27 +61,9 @@ const App = () => {
   //return <ReviewOrder/>
   //return <AddCustomers/>
   //return <AddPayment/>
-
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="OnBoarding1" component={OnBoarding1} />
-        <Stack.Screen name="OnBoarding2" component={OnBoarding2} />
-        <Stack.Screen name="OnBoarding3" component={OnBoarding3} />
-        <Stack.Screen name="LogIn" component={Login} />
-        <Stack.Screen name="Dashboard" component={DashboardEmpty} />
-        <Stack.Screen name="Dashboard2" component={DashboardFilled} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword1} />
-        <Stack.Screen name="ForgotPassword2" component={ForgotPassword2} />
-        <Stack.Screen name="ChangePassword" component={ChangePassword2} />
-        <Stack.Screen name="Notifications" component={Notifications} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="SalesDetail" component={SalesDetails} />
-        <Stack.Screen name="CreateSales" component={CreateSales} />
-        <Stack.Screen name="AddProducts" component={AddProducts} />
-        <Stack.Screen name="AddCustomers" component={AddCustomers} />
-        <Stack.Screen name="ReviewOrder" component={ReviewOrder} />
-      </Stack.Navigator>
+      <AppNavigator />
     </NavigationContainer>
   );
 };

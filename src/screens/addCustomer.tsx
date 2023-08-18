@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
-import {UnsecuredTextBox} from './login';
+import {UnsecuredTextBox} from '../components/Inputs';
 
 const AddCustomers = ({navigation}: any = {}) => {
   return (

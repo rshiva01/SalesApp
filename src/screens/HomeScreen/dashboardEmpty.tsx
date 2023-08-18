@@ -14,7 +14,7 @@ import {
   FAB,
   IconButton,
 } from 'react-native-paper';
-import BottomTab from '../../navigation/bottomTab';
+import BottomTab from '../../navigators/BottomTabNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 
 const AvatarNBell = ({navigation}: any) => {

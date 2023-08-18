@@ -7,7 +7,7 @@ import {
   RadioButton,
   Searchbar,
 } from 'react-native-paper';
-import {UnsecuredTextBox} from './login';
+import {UnsecuredTextBox} from '../components/Inputs';
 
 const AddPayment = () => {
   const [checked, setChecked] = React.useState('first');

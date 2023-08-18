@@ -7,7 +7,7 @@ import {
   YellowText,
   Content,
   UnsecuredTextBox,
-} from './login';
+} from '../components/Inputs';
 
 const ForgotPassword1 = ({navigation}: any) => {
   return (

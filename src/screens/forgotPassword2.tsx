@@ -1,7 +1,7 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Button, Divider, TextInput} from 'react-native-paper';
-import {LogoContainer, Dividers, YellowText, Content} from './login';
+import {LogoContainer, Dividers, YellowText, Content} from '../components/Inputs';
 
 const Box = () => {
   return (

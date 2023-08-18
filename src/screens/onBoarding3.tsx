@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
-const OnBoarding3 = ({navigation}) => {
+const OnBoarding3 = ({navigation} = {}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.skipButton}>

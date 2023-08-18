@@ -1,7 +1,7 @@
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {Button, Divider, TextInput, Checkbox} from 'react-native-paper';
-import {JumpingTransition} from 'react-native-reanimated';
+import {useTranslation} from '../localization';
 
 const LogoContainer = () => {
   return (
@@ -9,7 +9,8 @@ const LogoContainer = () => {
       <Image
         source={require('../assets/logoNew.png')}
         resizeMode="contain"
-        style={styles.logo}></Image>
+        style={styles.logo}
+      />
       <View style={{flexDirection: 'row', justifyContent: 'center'}}>
         <Text style={{color: '#F6B100', fontSize: 24, fontWeight: 'bold'}}>
           Mauzo
@@ -49,56 +50,40 @@ const Content = (props: ContentProps) => {
 };
 export {Content};
 
-type TextBoxProps = {
-  placeholder: string;
-};
-const UnsecuredTextBox = (props: TextBoxProps) => {
-  return (
-    <TextInput
-      style={styles.textContainer}
-      mode="outlined"
-      label={props.placeholder}
-      secureTextEntry={false}
-      outlineColor="#D5EAF1"
-      textColor="#D5EAF1"
-      activeOutlineColor="#D5EAF1"
-      placeholderTextColor="#D5EAF1"
-      outlineStyle={styles.outline}
-      theme={{colors: {primary: '#D5EAF1'}}}
-    />
-  );
-};
-export {UnsecuredTextBox};
-
-type SecuredTextBoxProps = {
-  placeholder: string;
-};
-const SecuredTextBox = (props: SecuredTextBoxProps) => {
-  return (
-    <TextInput
-      style={styles.passwordContainer}
-      mode="outlined"
-      label={props.placeholder}
-      secureTextEntry={true}
-      outlineColor="#D5EAF1"
-      textColor="#D5EAF1"
-      activeOutlineColor="#D5EAF1"
-      placeholderTextColor={'#D5EAF1'}
-      outlineStyle={styles.outline}
-    />
-  );
-};
-export {SecuredTextBox};
-
 const Login = ({navigation}: any) => {
   const [checked, setChecked] = React.useState(false);
+  const {t} = useTranslation();
   return (
     <View style={styles.mainContainer}>
       <LogoContainer />
       <Dividers />
       <YellowText text="Login Now" />
-      <UnsecuredTextBox placeholder="Enter Mobile Number" />
-      <SecuredTextBox placeholder="Password" />
+      <TextInput
+        style={styles.passwordContainer}
+        mode="outlined"
+        label={t('Mobile Number')}
+        placeholder={t('Enter mobile number')}
+        secureTextEntry={true}
+        outlineColor="#FFF"
+        textColor="#D5EAF1"
+        activeOutlineColor="#D5EAF1"
+        selectionColor="#FFF"
+        // placeholderTextColor="#FFFFFF"
+        outlineStyle={styles.outline}
+      />
+      <TextInput
+        style={styles.passwordContainer}
+        mode="outlined"
+        label={'Password'}
+        placeholder={'Enter password'}
+        secureTextEntry={true}
+        outlineColor="#FFF"
+        textColor="#D5EAF1"
+        activeOutlineColor="#D5EAF1"
+        selectionColor="#FFF"
+        // placeholderTextColor="#FFFFFF"
+        outlineStyle={styles.outline}
+      />
       <View style={styles.container}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Checkbox
@@ -121,7 +106,7 @@ const Login = ({navigation}: any) => {
         <TouchableOpacity
           style={styles.updateButton}
           onPress={() => {
-            navigation.navigate('Dashboard2');
+            navigation.navigate('App');
           }}>
           <Text style={styles.update}>Log In</Text>
         </TouchableOpacity>

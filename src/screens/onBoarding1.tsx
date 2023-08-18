@@ -1,22 +1,6 @@
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 
-// type SkipButtonProps = {
-//     onPress: onPress
-// }
-
-// const SkipButton = () => {
-//     return(
-//         <View></View>
-//     )
-// }
-
-// const OnBoarding = () => {
-//     return(
-//         <View></View>
-//     )
-// }
-
 const OnBoarding1 = ({navigation}: any) => {
   return (
     <View style={styles.container}>

@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {BackNBell} from './profile';
 import {IconButton} from 'react-native-paper';
 
-const NotificationContent = () => {
+export const NotificationContent = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.circle}></View>
-      <Text style={{color: '#FFFFFF', margin: 10}}>
+      <View style={styles.circle} />
+      <Text style={styles.notificationText}>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s
@@ -15,9 +14,9 @@ const NotificationContent = () => {
     </View>
   );
 };
-export {NotificationContent};
 
-const Notifications = ({navigation}: any) => {
+const Notifications = (props: any) => {
+  const {navigation} = props || {};
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container1}>
@@ -83,4 +82,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginLeft: 5,
   },
+  notificationText: {color: '#FFFFFF', margin: 10},
 });

@@ -1,7 +1,7 @@
 import React, {useCallback, useMemo, useRef} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
-import {UnsecuredTextBox} from './login';
+import {UnsecuredTextBox} from '../components/Inputs';
 
 type DetailBoxProps = {
   title: string;
