@@ -3,7 +3,7 @@ import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "rea
 import { Button, Divider, IconButton, Searchbar } from "react-native-paper";
 import { UnsecuredTextBox } from "./login";
 
-const AddCustomers = ({navigation}:any) => {
+const AddCustomers = ({navigation}:any={}) => {
     return(
         <View style = {styles.mainContainer}>
             <View style = {{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}} >

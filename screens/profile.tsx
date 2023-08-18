@@ -58,7 +58,7 @@ const Profile = () => {
                 <List.Section title = ''>
                         <List.Accordion
                             title = 'Settings'
-                            left={props => <List.Icon {...props} icon={require('../assets/settingIcon.png')}/>}
+                            left={props => <List.Icon {...props} icon={'airplane-settings'}/>}
                             style = {styles.listStyle}
                             titleStyle = {styles.listTitleStyle}
                             >
