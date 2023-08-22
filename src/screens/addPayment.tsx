@@ -1,91 +1,104 @@
 import React, {useCallback, useMemo, useRef} from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {
-  Button,
-  Divider,
-  IconButton,
-  RadioButton,
-  Searchbar,
-} from 'react-native-paper';
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
 import {UnsecuredTextBox} from '../components/Inputs';
 
-const AddPayment = () => {
-  const [checked, setChecked] = React.useState('first');
-  return (
-    <View style={styles.mainContainer}>
+const TextHolder = () => {
+  return <View></View>;
+};
+
+const AddPayment = ({navigation}: any) => (
+  <View style={styles.mainContainer}>
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <IconButton
+          icon={require('../assets/backArrowButton.png')}
+          iconColor="#F6B100"
+          size={19}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
+        <Text style={{color: '#F6B100'}}>Add Payment</Text>
+      </View>
+      <Button labelStyle={{color: '#F6B100', fontSize: 14}}>Cancel</Button>
+    </View>
+    <View>
       <View
         style={{
+          justifyContent: 'space-evenly',
           flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          marginTop: 30,
         }}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <IconButton
-            icon={require('../assets/backArrowButton.png')}
-            iconColor="#F6B100"
-            size={19}
+        <View style={{alignItems: 'center'}}>
+          <Image
+            source={require('../assets/tickIcon.png')}
+            resizeMode="contain"
           />
-          <Text style={{color: '#F6B100'}}>Add Payment</Text>
+          <Text style={styles.yellowText}>Customer Detail</Text>
         </View>
-        <Button labelStyle={{color: '#F6B100', fontSize: 14}}>Cancel</Button>
-      </View>
-      <View>
-        <View
-          style={{
-            justifyContent: 'space-evenly',
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginTop: 30,
-          }}>
-          <View style={{alignItems: 'center'}}>
-            <Image
-              source={require('../assets/tickIcon.png')}
-              resizeMode="contain"
-            />
-            <Text style={styles.yellowText}>Customer Detail</Text>
-          </View>
-          <View style={{alignItems: 'center'}}>
-            <Image
-              source={require('../assets/tickIcon.png')}
-              resizeMode="contain"
-            />
-            <Text style={styles.yellowText}>Add Product & Review</Text>
-          </View>
-          <View style={{alignItems: 'center'}}>
-            <Image
-              source={require('../assets/tickIcon.png')}
-              resizeMode="contain"
-            />
-            <Text style={styles.yellowText}>Add Payment</Text>
-          </View>
+        <View style={{alignItems: 'center'}}>
+          <Image
+            source={require('../assets/tickIcon.png')}
+            resizeMode="contain"
+          />
+          <Text style={styles.yellowText}>Add Product & Review</Text>
+        </View>
+        <View style={{alignItems: 'center'}}>
+          <Image
+            source={require('../assets/tickIcon.png')}
+            resizeMode="contain"
+          />
+          <Text style={styles.yellowText}>Add Payment</Text>
         </View>
       </View>
-      <Text>Payment Mode</Text>
-      <View>
-        <RadioButton
-          value="first"
-          status={checked === 'first' ? 'checked' : 'unchecked'}
-          onPress={() => setChecked('first')}
-        />
-        <RadioButton
-          value="second"
-          status={checked === 'second' ? 'checked' : 'unchecked'}
-          onPress={() => setChecked('second')}
-        />
-        <RadioButton
-          value="second"
-          status={checked === 'second' ? 'checked' : 'unchecked'}
-          onPress={() => setChecked('second')}
-        />
-      </View>
+    </View>
+    <Text
+      style={{
+        color: '#FFFFFF',
+        fontWeight: 'bold',
+        fontSize: 14,
+        marginTop: 40,
+        marginLeft: 20,
+      }}>
+        Payment Mode
+    </Text>
+    <View style = {{margin:20}}>
+      <Text style = {styles.textStyle}>Cash</Text>
+      <Text style = {styles.textStyle}>Online</Text>
+      <Text style = {styles.textStyle}>Credit</Text>
+      <Text style = {styles.textStyle}>Upload Image</Text>
+    </View>
+    <ScrollView>
+      <UnsecuredTextBox placeholder="Amount Paid" />
+      <UnsecuredTextBox placeholder="Amount Due" />
+    </ScrollView>
+    <View style={{marginTop: 10, height: 150}}>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.updateButton}>
-          <Text style={styles.update}>Next</Text>
+        <TouchableOpacity
+          style={styles.updateButton}
+          onPress={() => {
+            navigation.navigate('Dashboard2');
+          }}>
+          <Text style={styles.update}>Complete</Text>
         </TouchableOpacity>
       </View>
     </View>
-  );
-};
+  </View>
+);
 
 export default AddPayment;
 
@@ -112,7 +125,7 @@ const styles = StyleSheet.create({
   },
   updateButton: {
     flex: 1,
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
     maxHeight: 77,
     width: 375,
     backgroundColor: '#F6B100',
@@ -139,4 +152,8 @@ const styles = StyleSheet.create({
     color: '#01232D',
     fontSize: 14,
   },
+  textStyle:{
+    color: '#D5EAF1',
+    lineHeight: 25
+  }
 });

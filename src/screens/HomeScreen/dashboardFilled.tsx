@@ -197,13 +197,15 @@ const DashboardFilled = ({navigation}: any) => {
         </TouchableOpacity>
       </View>
       <ScrollView>
-        <SalesEntry
-          name="John Doe"
-          tzs="12,450"
-          paymentMode="Cash"
-          ap="12,450"
-          ad="0.0"
-        />
+        <TouchableOpacity onPress={()=>{navigation.navigate('SalesDetails')}}>
+          <SalesEntry
+            name="John Doe"
+            tzs="12,450"
+            paymentMode="Cash"
+            ap="12,450"
+            ad="0.0"
+          />
+        </TouchableOpacity>
         <SalesEntry
           name="John Doe"
           tzs="12,450"
@@ -346,7 +348,7 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
     justifyContent: 'center',
     position: 'absolute',
-    bottom: 80,
-    right: 10,
+    bottom: 10,
+    right: 10
   },
 });

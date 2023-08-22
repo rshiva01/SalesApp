@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {TextInput} from 'react-native-paper';
+import {TextInput, Text} from 'react-native-paper';
 
 type TextBoxProps = {
   placeholder: string;
@@ -10,14 +10,15 @@ const UnsecuredTextBox = (props: TextBoxProps) => {
     <TextInput
       style={styles.textContainer}
       mode="outlined"
-      label={props.placeholder}
+      label={<Text style = {{color:'#D5EAF1'}}>{props.placeholder}</Text>}
       secureTextEntry={false}
       outlineColor="#D5EAF1"
       textColor="#D5EAF1"
       activeOutlineColor="#D5EAF1"
       placeholderTextColor="#D5EAF1"
       outlineStyle={styles.outline}
-      theme={{colors: {primary: '#D5EAF1'}}}
+      theme={{colors: {primary: '#D5EAF1', placeholder:'#D5EAF1', text:'#D5EAF1', secondary:'#D5EAF1'}}}
+      contentStyle={{color:'#D5EAF1'}}
     />
   );
 };
@@ -46,7 +47,9 @@ export {SecuredTextBox};
 const styles = StyleSheet.create({
   textContainer: {
     backgroundColor: '#012E3C',
-    margin: 20,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    color:'#D5EAF1'
   },
   passwordContainer: {
     backgroundColor: '#01232D',

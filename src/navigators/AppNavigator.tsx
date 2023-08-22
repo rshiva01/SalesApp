@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from '../screens/Login';
+import Login from '../screens/login'
 import OnBoarding1 from '../screens/onBoarding1';
 import OnBoarding2 from '../screens/onBoarding2';
 import OnBoarding3 from '../screens/onBoarding3';
@@ -12,7 +12,7 @@ import ForgotPassword2 from '../screens/forgotPassword2';
 import ChangePassword2 from '../screens/changePassword2';
 import Profile from '../screens/Profile';
 import Notifications from '../screens/Notifications';
-import BottomTab from './navigators/BottomTabNavigator';
+import BottomTab from '../navigators/BottomTabNavigator';
 import AppLock from '../screens/appLock';
 import FAQ from '../screens/faq';
 import AboutUs from '../screens/aboutUs';

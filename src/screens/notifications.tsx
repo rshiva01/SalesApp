@@ -25,6 +25,7 @@ const Notifications = (props: any) => {
             icon={require('../assets/backArrowButton.png')}
             size={20}
             iconColor="#F6B100"
+            onPress={()=>navigation.goBack()}
           />
           <Text style={styles.textStyle}>Notifications</Text>
         </View>

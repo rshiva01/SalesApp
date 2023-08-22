@@ -5,7 +5,8 @@ import DashboardFilled from '../screens/HomeScreen/dashboardFilled';
 import ForgotPassword1 from '../screens/forgotPassword1';
 import ForgotPassword2 from '../screens/forgotPassword2';
 import ChangePassword2 from '../screens/changePassword2';
-import Profile from '../screens/Profile';
+import Profile from '../screens/profile';
+import Notifications from '../screens/notifications';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ export default function HomeNavigator() {
       <Stack.Screen name="ForgotPassword2" component={ForgotPassword2} />
       <Stack.Screen name="ChangePassword" component={ChangePassword2} />
       <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Notifications" component={Notifications} />
     </Stack.Navigator>
   );
 }

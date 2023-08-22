@@ -78,13 +78,15 @@ const AddProducts = ({navigation}: any) => (
       Add Products to your sales
     </Text>
     <ScrollView>
-      <UnsecuredTextBox placeholder="Product Name" />
+      <TouchableOpacity>
+        <UnsecuredTextBox placeholder="Product Name" />
+      </TouchableOpacity>
       <UnsecuredTextBox placeholder="Quality" />
       <UnsecuredTextBox placeholder="Unit Price" />
       <UnsecuredTextBox placeholder="Discount" />
       <UnsecuredTextBox placeholder="Selling Price" />
     </ScrollView>
-    <View style={{marginTop: 10, height: 150}}>
+    <View style={{marginTop: 10, height: 120}}>
       <Button style={styles.addMoreButton} labelStyle={styles.addMoreText}>
         Add More
       </Button>
@@ -148,6 +150,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     flexDirection: 'row',
     alignSelf: 'flex-end',
+    position: 'absolute',
   },
   addMoreText: {
     color: '#01232D',

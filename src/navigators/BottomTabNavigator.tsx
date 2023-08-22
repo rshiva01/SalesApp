@@ -2,9 +2,10 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {Image, StyleSheet, View} from 'react-native';
-import Notifications from '../screens/Notifications';
+import Notifications from '../screens/notifications';
 import HomeNavigator from './HomeNavigator';
 import SalesNavigator from './SalesNavigator';
+import DashboardFilled from '../screens/HomeScreen/dashboardFilled';
 const Tab = createMaterialBottomTabNavigator();
 
 export default function BottomTabNavigator() {

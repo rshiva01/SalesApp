@@ -112,7 +112,7 @@ const ReviewOrder = ({navigation}: any) => {
         Add More
       </Button>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.updateButton}>
+        <TouchableOpacity style={styles.updateButton} onPress={()=>{navigation.navigate('AddPayment')}}>
           <Text style={styles.update}>Next</Text>
         </TouchableOpacity>
       </View>

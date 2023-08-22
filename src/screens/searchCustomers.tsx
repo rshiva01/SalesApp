@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo, useRef} from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
 import BottomSheet from '@gorhom/bottom-sheet';
 
@@ -41,6 +41,7 @@ const SearchCustomers = ({navigation}: any) => {
             icon={require('../assets/backArrowButton.png')}
             iconColor="#F6B100"
             size={19}
+            onPress={()=>navigation.goBack()}
           />
           <Text style={{color: '#F6B100'}}>Search Customers</Text>
         </View>
