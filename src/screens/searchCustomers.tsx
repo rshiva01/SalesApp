@@ -2,12 +2,14 @@ import React, {useCallback, useMemo, useRef} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
 import BottomSheet from '@gorhom/bottom-sheet';
+import {useTranslation} from '../localization';
 
 const SearchCustomers = ({navigation}: any) => {
   const [searchQuery, setSearchQuery] = React.useState('');
   const onChangeSearch = (query: any) => setSearchQuery(query);
   const bottomSheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ['25%', '50%'], []);
+  const {t} = useTranslation();
 
   const handleSheetChanges = useCallback((index: number) => {
     console.log('handleSheetChanges', index);
@@ -32,9 +34,11 @@ const SearchCustomers = ({navigation}: any) => {
             size={19}
             onPress={() => navigation.goBack()}
           />
-          <Text style={{color: '#F6B100'}}>Search Customers</Text>
+          <Text style={{color: '#F6B100'}}>{t('Search Customers')}</Text>
         </View>
-        <Button labelStyle={{color: '#F6B100', fontSize: 14}}>Cancel</Button>
+        <Button labelStyle={{color: '#F6B100', fontSize: 14}}>
+          {t('Cancel')}
+        </Button>
       </View>
       <View>
         <Searchbar
@@ -96,7 +100,7 @@ const SearchCustomers = ({navigation}: any) => {
             onPress={() => {
               navigation.navigate('AddCustomers');
             }}>
-            ADD CUSTOMER
+            {t('Add Custom').toUpperCase()}
           </Button>
         </View>
       </View>
