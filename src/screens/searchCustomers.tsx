@@ -3,31 +3,20 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
 import BottomSheet from '@gorhom/bottom-sheet';
 
-const ChooseCustomer = () => {
-  const bottomSheetRef = useRef<BottomSheet>(null);
-  const snapPoints = useMemo(() => ['25%', '50%'], []);
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log('handleSheetChanges', index);
-  }, []);
-  return (
-    <View style={styles.bottomSheetMainContainer}>
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={1}
-        snapPoints={snapPoints}
-        onChange={handleSheetChanges}>
-        <View>
-          <Text style={{color: '#FFFFFF'}}>Awesome</Text>
-        </View>
-      </BottomSheet>
-    </View>
-  );
-};
-export {ChooseCustomer};
-
 const SearchCustomers = ({navigation}: any) => {
   const [searchQuery, setSearchQuery] = React.useState('');
   const onChangeSearch = (query: any) => setSearchQuery(query);
+  const bottomSheetRef = useRef<BottomSheet>(null);
+  const snapPoints = useMemo(() => ['25%', '50%'], []);
+
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
+
+  const openBottomSheet = useCallback(() => {
+    bottomSheetRef.current?.snapToIndex(1);
+  }, [bottomSheetRef]);
+
   return (
     <View style={styles.mainContainer}>
       <View
@@ -41,7 +30,7 @@ const SearchCustomers = ({navigation}: any) => {
             icon={require('../assets/backArrowButton.png')}
             iconColor="#F6B100"
             size={19}
-            onPress={()=>navigation.goBack()}
+            onPress={() => navigation.goBack()}
           />
           <Text style={{color: '#F6B100'}}>Search Customers</Text>
         </View>
@@ -131,8 +120,7 @@ const SearchCustomers = ({navigation}: any) => {
             <Button
               style={styles.viewDetailButtonStyle}
               labelStyle={styles.viewDetailButtonLabelStyle}
-              onPress={ChooseCustomer}>
-              {/* // navigation.navigate('SalesDetail') */}
+              onPress={openBottomSheet}>
               View Detail
             </Button>
             <Button
@@ -234,6 +222,15 @@ const SearchCustomers = ({navigation}: any) => {
         </View>
         <Divider />
       </View>
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}>
+        <View>
+          <Text style={{color: '#FFFFFF'}}>Awesome</Text>
+        </View>
+      </BottomSheet>
     </View>
   );
 };
