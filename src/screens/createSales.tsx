@@ -1,6 +1,6 @@
 import React, {useCallback, useMemo, useRef} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
+import {Button, Chip, Divider, IconButton, Searchbar} from 'react-native-paper';
 import {UnsecuredTextBox} from '../components/Inputs';
 
 const CreateSales = ({navigation}: any) => {
@@ -67,7 +67,17 @@ const CreateSales = ({navigation}: any) => {
         }}>
         Customer Details
       </Text>
-      <UnsecuredTextBox placeholder="Enter Name" />
+      {/* <UnsecuredTextBox placeholder="Enter Name" /> */}
+      <Chip
+        mode="outlined"
+        textStyle={styles.chipText}
+        theme={{colors: {primary: '#012E3C'}}}
+        style={styles.chipStyle}
+        onPress={() => {
+          navigation.navigate('SearchCustomers');
+        }}>
+        Enter name
+      </Chip>
       <UnsecuredTextBox placeholder="Enter Delivery Date" />
       <UnsecuredTextBox placeholder="Order ID" />
       <View style={styles.buttonContainer}>
@@ -122,5 +132,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  chipText: {
+    color: '#D5EAF1',
+    fontSize: 17,
+  },
+  chipStyle: {
+    backgroundColor: '#012E3C',
+    borderColor: '#78ADBE',
+    height: 48,
+    marginHorizontal: 20,
+    marginBottom: 10,
+    marginTop: 20,
+    borderWidth: 1.5,
+    borderRadius: 10,
   },
 });

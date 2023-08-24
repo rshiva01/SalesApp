@@ -112,7 +112,7 @@ const Profile = () => {
                 titleStyle={styles.listItemTitleStyle}
               />
             </List.Accordion>
-            <List.Accordion
+            {/* <List.Accordion
               title="About Us"
               left={props => (
                 <List.Icon
@@ -144,7 +144,7 @@ const Profile = () => {
                 />
               )}
               style={styles.listStyle}
-              titleStyle={styles.listTitleStyle}></List.Accordion>
+              titleStyle={styles.listTitleStyle}></List.Accordion> */}
           </List.Section>
         </View>
       </ScrollView>

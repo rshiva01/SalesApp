@@ -19,10 +19,10 @@ import AboutUs from '../screens/aboutUs';
 import TermsNCondition from '../screens/TermsConditions';
 import CreateSales from '../screens/createSales';
 import SalesDetails from '../screens/SalesDetails';
-import SearchCustomers from '../screens/SearchCustomers';
+import SearchCustomers from '../screens/searchCustomers';
 import CustomerAdded from '../screens/createSales';
 import AddProducts from '../screens/addProducts';
-import ReviewOrder from '../screens/ReviewOrder';
+import ReviewOrder from '../screens/reviewOrder';
 import AddPayment from '../screens/addPayment';
 import SearchProducts from '../screens/SearchProduct';
 import AddCustomers from '../screens/addCustomer';
@@ -46,6 +46,11 @@ export default function AppNavigator() {
       <Stack.Screen name="OnBoarding3" component={OnBoarding3} />
       <Stack.Screen name="LogIn" component={Login} />
       <Stack.Screen name="App" component={BottomTabNavigator} />
+      <Stack.Screen name="SearchCustomers" component={SearchCustomers} />
+      <Stack.Screen name="AddProducts" component={AddProducts} />
+      <Stack.Screen name="AddCustomers" component={AddCustomers} />
+      <Stack.Screen name="ReviewOrder" component={ReviewOrder} />
+      <Stack.Screen name="AddPayment" component={AddPayment} />
     </Stack.Navigator>
   );
 }

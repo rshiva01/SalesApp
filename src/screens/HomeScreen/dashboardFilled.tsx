@@ -188,13 +188,6 @@ const DashboardFilled = ({navigation}: any) => {
       </View>
       <View style={styles.yourSales}>
         <Text style={styles.yourSalesText}>Your Sales</Text>
-        <TouchableOpacity
-          style={styles.createSalesButton}
-          onPress={() => {
-            navigation.navigate('CreateSales');
-          }}>
-          <Text style={styles.buttonText}>Create Sales</Text>
-        </TouchableOpacity>
       </View>
       <ScrollView>
         <TouchableOpacity onPress={()=>{navigation.navigate('SalesDetails')}}>

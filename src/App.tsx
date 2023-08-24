@@ -21,7 +21,7 @@ import AboutUs from './screens/aboutUs';
 import TermsNCondition from './screens/TermsConditions';
 import CreateSales from './screens/createSales';
 import SalesDetails from './screens/SalesDetails';
-import SearchCustomers from './screens/SearchCustomers';
+import SearchCustomers from './screens/searchCustomers';
 import CustomerAdded from './screens/createSales';
 import AddProducts from './screens/addProducts';
 import ReviewOrder from './screens/ReviewOrder';

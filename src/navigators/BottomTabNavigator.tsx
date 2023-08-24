@@ -6,6 +6,7 @@ import Notifications from '../screens/notifications';
 import HomeNavigator from './HomeNavigator';
 import SalesNavigator from './SalesNavigator';
 import DashboardFilled from '../screens/HomeScreen/dashboardFilled';
+import CreateSales from '../screens/createSales';
 const Tab = createMaterialBottomTabNavigator();
 
 export default function BottomTabNavigator() {
@@ -39,7 +40,7 @@ export default function BottomTabNavigator() {
         name="Sales"
         component={SalesNavigator}
         options={{
-          tabBarLabel: 'My Sales',
+          tabBarLabel: 'Create Sales',
           tabBarIcon: () => (
             <View style={styles.center}>
               <Image
