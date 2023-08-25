@@ -2,12 +2,9 @@ import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Divider} from 'react-native-paper';
 import {
-  LogoContainer,
-  Dividers,
-  YellowText,
-  Content,
   UnsecuredTextBox,
 } from '../components/Inputs';
+import { Content, Dividers, LogoContainer, YellowText } from './login';
 
 const ForgotPassword1 = ({navigation}: any) => {
   return (

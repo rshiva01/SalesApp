@@ -22,12 +22,12 @@ const Box = () => {
 };
 export {Box};
 
-const ForgotPassword2 = ({navigation}: any) => {
+const ResetPassword = ({navigation}: any) => {
   return (
     <View style={styles.mainContainer}>
       <LogoContainer />
       <Dividers />
-      <YellowText text="Forgot Password" />
+      <YellowText text="Reset Password" />
       <Text style={styles.otp}>Enter OTP</Text>
       <Content text={"A 6-Digit code has been sent to{'\n'}9*******90"} />
       <View>
@@ -49,7 +49,7 @@ const ForgotPassword2 = ({navigation}: any) => {
         <TouchableOpacity
           style={styles.logInButton}
           onPress={() => {
-            navigation.navigate('ChangePassword');
+            navigation.navigate('ResetPassword2');
           }}>
           <Text style={styles.logIn}>Submit</Text>
         </TouchableOpacity>
@@ -57,7 +57,7 @@ const ForgotPassword2 = ({navigation}: any) => {
     </View>
   );
 };
-export default ForgotPassword2;
+export default ResetPassword;
 
 const styles = StyleSheet.create({
   mainContainer: {

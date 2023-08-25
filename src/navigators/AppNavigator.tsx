@@ -33,6 +33,8 @@ import EditProfile from '../screens/editProfile';
 import BottomTabNavigator from './BottomTabNavigator';
 import ProductsAdded from '../screens/productsAdded';
 import ProductsAdded2 from '../screens/productsAdded2';
+import ResetPassword from '../screens/resetPassword';
+import ResetPassword2 from '../screens/resetPassword2';
 
 const Stack = createNativeStackNavigator();
 
@@ -57,6 +59,8 @@ export default function AppNavigator() {
       <Stack.Screen name="ProductsAdded2" component={ProductsAdded2} />
       <Stack.Screen name="ReviewOrder" component={ReviewOrder} />
       <Stack.Screen name="AddPayment" component={AddPayment} />
+      <Stack.Screen name="ResetPassword" component={ResetPassword} />
+      <Stack.Screen name="ResetPassword2" component={ResetPassword2} />
     </Stack.Navigator>
   );
 }

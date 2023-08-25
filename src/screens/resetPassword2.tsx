@@ -7,12 +7,12 @@ import {
 } from '../components/Inputs';
 import { Dividers, LogoContainer, YellowText } from './login';
 
-const ChangePassword2 = ({navigation}: any) => {
+const ResetPassword2 = ({navigation}: any) => {
   return (
     <View style={styles.mainContainer}>
       <LogoContainer />
       <Dividers />
-      <YellowText text="Forgot Password" />
+      <YellowText text="Reset Password" />
       <UnsecuredTextBox placeholder="Enter OTP" />
       <UnsecuredTextBox placeholder="Enter New Password" />
       <SecuredTextBox placeholder="Confirm Password" />
@@ -28,7 +28,7 @@ const ChangePassword2 = ({navigation}: any) => {
     </View>
   );
 };
-export default ChangePassword2;
+export default ResetPassword2;
 
 const styles = StyleSheet.create({
   mainContainer: {

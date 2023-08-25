@@ -44,6 +44,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import {PaperProvider, adaptNavigationTheme} from 'react-native-paper';
 import ProductsAdded2 from './screens/productsAdded2';
+import ResetPassword from './screens/resetPassword';
 
 const App = () => {
   //return <OnBoarding1/>
@@ -69,12 +70,13 @@ const App = () => {
   //return <EditProfile/>
   //return <CustomerAdded/>
   //return <AddPayment/>
-  // return <AddProducts/>
+  //return <AddProducts/>
   //return <SearchProducts/>
   //return <ReviewOrder/>
   //return <AddCustomers/>
   //return <AddPayment/>
   //return <ProductsAdded2/>
+  //return <ResetPassword/>
 
   const isDarkMode = useColorScheme() === 'dark';
   const {LightTheme, DarkTheme} = adaptNavigationTheme({

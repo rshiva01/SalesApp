@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {IconButton} from 'react-native-paper';
 
-const AboutUs = () => {
+const AboutUs = ({navigation}:any) => {
   return (
     <View style={styles.mainContainer}>
       <View
@@ -16,6 +16,7 @@ const AboutUs = () => {
             icon={require('../assets/backArrowButton.png')}
             iconColor="#F6B100"
             size={19}
+            onPress={()=>{navigation.goBack()}}
           />
           <Text style={styles.aboutUsText}>About Us</Text>
         </View>
@@ -23,6 +24,7 @@ const AboutUs = () => {
           icon={require('../assets/bellIcon.png')}
           iconColor="#F6B100"
           size={19}
+          onPress={()=>{navigation.navigate('Notifications')}}
         />
       </View>
       <View

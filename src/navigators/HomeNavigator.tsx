@@ -8,6 +8,9 @@ import ChangePassword2 from '../screens/changePassword2';
 import Profile from '../screens/profile';
 import Notifications from '../screens/notifications';
 import SalesDetails from '../screens/salesDetails';
+import FAQ from '../screens/faq';
+import AboutUs from '../screens/aboutUs';
+import TermsNCondition from '../screens/TermsConditions';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +28,9 @@ export default function HomeNavigator() {
       <Stack.Screen name="ChangePassword" component={ChangePassword2} />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="Notifications" component={Notifications} />
+      <Stack.Screen name="FAQ" component={FAQ} />
+      <Stack.Screen name="AboutUs" component={AboutUs} />
+      <Stack.Screen name="TermsConditions" component={TermsNCondition} />
     </Stack.Navigator>
   );
 }

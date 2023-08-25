@@ -52,7 +52,7 @@ const AvatarEdit = () => {
 };
 export {AvatarEdit};
 
-const Profile = () => {
+const Profile = ({navigation}:any) => {
   const [expanded, setExpanded] = React.useState(true);
   const handlePress = () => setExpanded(!expanded);
   return (
@@ -78,10 +78,12 @@ const Profile = () => {
               <List.Item
                 title="Reset Password"
                 titleStyle={styles.listItemTitleStyle}
+                onPress={()=>{navigation.navigate('ResetPassword')}}
               />
               <List.Item
                 title="Notifications"
                 titleStyle={styles.listItemTitleStyle}
+                onPress={()=>{navigation.navigate('Notifications')}}
               />
               <List.Item
                 title="App Lock"
@@ -99,7 +101,7 @@ const Profile = () => {
               )}
               style={styles.listStyle}
               titleStyle={styles.listTitleStyle}>
-              <List.Item title="FAQ" titleStyle={styles.listItemTitleStyle} />
+              <List.Item title="FAQ" titleStyle={styles.listItemTitleStyle} onPress={()=>{navigation.navigate('FAQ')}}/>
               <List.Item
                 title="Call us"
                 titleStyle={styles.listItemTitleStyle}
@@ -112,8 +114,9 @@ const Profile = () => {
                 titleStyle={styles.listItemTitleStyle}
               />
             </List.Accordion>
-            {/* <List.Accordion
+            <List.Accordion
               title="About Us"
+              onPress={()=>{navigation.navigate('AboutUs')}}
               left={props => (
                 <List.Icon
                   {...props}
@@ -125,6 +128,7 @@ const Profile = () => {
               titleStyle={styles.listTitleStyle}></List.Accordion>
             <List.Accordion
               title="Terms & Condition"
+              onPress={()=>{navigation.navigate('TermsConditions')}}
               left={props => (
                 <List.Icon
                   {...props}
@@ -144,7 +148,7 @@ const Profile = () => {
                 />
               )}
               style={styles.listStyle}
-              titleStyle={styles.listTitleStyle}></List.Accordion> */}
+              titleStyle={styles.listTitleStyle}></List.Accordion>
           </List.Section>
         </View>
       </ScrollView>

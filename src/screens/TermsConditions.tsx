@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {IconButton} from 'react-native-paper';
 
-const TermsNCondition = () => {
+const TermsNCondition = ({navigation}:any) => {
   return (
     <View style={styles.mainContainer}>
       <View
@@ -16,6 +16,7 @@ const TermsNCondition = () => {
             icon={require('../assets/backArrowButton.png')}
             iconColor="#F6B100"
             size={19}
+            onPress={()=>{navigation.goBack()}}
           />
           <Text style={styles.termsNConditionStyle}>Terms & Condition</Text>
         </View>
@@ -23,6 +24,7 @@ const TermsNCondition = () => {
           icon={require('../assets/bellIcon.png')}
           iconColor="#F6B100"
           size={19}
+          onPress={()=>{navigation.navigate('Notifications')}}
         />
       </View>
       <Text style={styles.mainTextStyle}>
