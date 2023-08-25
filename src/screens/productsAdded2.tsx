@@ -11,7 +11,7 @@ import {Button, Chip, Divider, IconButton, Searchbar} from 'react-native-paper';
 import {UnsecuredTextBox} from '../components/Inputs';
 
 const TextHolder = () => {
-  return <View></View>;
+  return <View />;
 };
 
 const ProductsAdded2 = ({navigation}: any) => (
@@ -172,14 +172,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   addMoreButton: {
-    height: 32,
+    // height: 32, //never fix button sizes, it welcomes bugs
     width: 95,
     backgroundColor: '#D5EAF1',
     borderRadius: 5,
     marginBottom: 10,
     flexDirection: 'row',
     alignSelf: 'flex-end',
-    position: 'absolute',
+    // position: 'absolute', //in most case when a button is not clickable it is because of this. Avoid whenever you can
   },
   addMoreText: {
     color: '#01232D',
