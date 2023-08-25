@@ -1,6 +1,6 @@
 import React, {useCallback, useMemo, useRef} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
+import {Button, Chip, Divider, IconButton, Searchbar} from 'react-native-paper';
 import BottomSheet from '@gorhom/bottom-sheet';
 import {useTranslation} from '../localization';
 
@@ -17,6 +17,10 @@ const SearchCustomers = ({navigation}: any) => {
 
   const openBottomSheet = useCallback(() => {
     bottomSheetRef.current?.snapToIndex(1);
+  }, [bottomSheetRef]);
+
+  const closeBottomSheet = useCallback(() => {
+    bottomSheetRef.current?.close();
   }, [bottomSheetRef]);
 
   return (
@@ -228,11 +232,59 @@ const SearchCustomers = ({navigation}: any) => {
       </View>
       <BottomSheet
         ref={bottomSheetRef}
-        index={1}
+        index={-1}
         snapPoints={snapPoints}
-        onChange={handleSheetChanges}>
-        <View>
-          <Text style={{color: '#FFFFFF'}}>Awesome</Text>
+        onChange={handleSheetChanges}
+        handleStyle={{backgroundColor: '#012E3C'}}>
+        <View style={styles.bottomSheetMainContainer}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginHorizontal: 20,
+            }}>
+            <View style={{flexDirection: 'row'}}>
+              <View style={styles.avatarBackground}>
+                <Image
+                  source={require('../assets/avatar.png')}
+                  resizeMode="contain"
+                />
+              </View>
+              <Text style={styles.nameStyle}>John Doe</Text>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <IconButton
+                icon={require('../assets/editIcon.png')}
+                iconColor="#AAD2DF"
+                size={13}
+              />
+              <IconButton
+                icon={require('../assets/crossButton.png')}
+                iconColor="#AAD2DF"
+                size={13}
+                onPress={closeBottomSheet}
+              />
+            </View>
+          </View>
+          <View style={{marginHorizontal: 20}}>
+            <Text style={styles.textStyle}>Customer Name - John Doe</Text>
+            <Text style={styles.textStyle}>Email Address - doej77@ykl.com</Text>
+            <Text style={styles.textStyle}>
+              Mobile Number - +255 6789043233
+            </Text>
+            <Text style={styles.textStyle}>Business Name - XYZ Traders</Text>
+            <Text style={styles.textStyle}>TIN - 090000456</Text>
+            <Text style={styles.textStyle}>Industry Type - Brass & Glass</Text>
+          </View>
+          <Chip
+            mode="flat"
+            style={styles.buttonStyle}
+            textStyle={styles.buttonTextStyle}
+            onPress={() => {
+              navigation.navigate('CustomerAdded');
+            }}>
+            Choose
+          </Chip>
         </View>
       </BottomSheet>
     </View>
@@ -274,5 +326,42 @@ const styles = StyleSheet.create({
     color: '#D5EAF1',
     alignSelf: 'center',
   },
-  bottomSheetMainContainer: {},
+  bottomSheetMainContainer: {
+    flex: 1,
+    backgroundColor: '#012E3C',
+  },
+  avatarBackground: {
+    backgroundColor: '#2A677A',
+    height: 25,
+    width: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 13,
+    alignSelf: 'center',
+    marginRight: 10,
+  },
+  nameStyle: {
+    color: '#D5EAF1',
+    fontSize: 14,
+    alignSelf: 'center',
+  },
+  textStyle: {
+    color: '#D5EAF1',
+    fontSize: 14,
+    lineHeight: 30,
+  },
+  buttonStyle: {
+    backgroundColor: '#F6B100',
+    height: 77,
+    alignItems: 'center',
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  buttonTextStyle: {
+    color: '#01232D',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
 });

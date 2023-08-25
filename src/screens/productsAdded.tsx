@@ -14,7 +14,7 @@ const TextHolder = () => {
   return <View></View>;
 };
 
-const AddProducts = ({navigation}: any) => (
+const ProductsAdded = ({navigation}: any) => (
   <View style={styles.mainContainer}>
     <View
       style={{
@@ -78,29 +78,35 @@ const AddProducts = ({navigation}: any) => (
       Add Products to your sales
     </Text>
     <ScrollView>
-    <Chip
+      <Chip
         mode="outlined"
         textStyle={styles.chipText}
         theme={{colors: {primary: '#012E3C'}}}
-        style={styles.chipStyle}
-        onPress={()=>{navigation.navigate('SearchProducts')}}
-        >
-        Product Name
+        style={styles.chipStyle}>
+        Brittania
       </Chip>
-      <UnsecuredTextBox placeholder="Quality" />
-      <UnsecuredTextBox placeholder="Unit Price" />
+      <UnsecuredTextBox placeholder="20" />
+      <UnsecuredTextBox placeholder="TZS 1500.0" />
       <UnsecuredTextBox placeholder="Discount" />
-      <UnsecuredTextBox placeholder="Selling Price" />
+      <UnsecuredTextBox placeholder="TZS 1400.0" />
     </ScrollView>
     <View style={{marginTop: 10, height: 120}}>
-      <Button style={styles.addMoreButton} labelStyle={styles.addMoreText}>
-        Add More
-      </Button>
+      {/* <TouchableOpacity>
+        <Button
+          style={styles.addMoreButton}
+          labelStyle={styles.addMoreText}
+          onPress={() => {
+            navigation.navigate('SearchProducts');
+          }}>
+          Add More
+        </Button>
+      </TouchableOpacity> */}
+      <Chip style={styles.addMoreButton} textStyle={styles.addMoreText} onPress={()=>{navigation.navigate('AddProducts')}}>Add More</Chip>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.updateButton}
           onPress={() => {
-            navigation.navigate('ReviewOrder');
+            navigation.navigate('ProductsAdded2');
           }}>
           <Text style={styles.update}>Next</Text>
         </TouchableOpacity>
@@ -109,7 +115,7 @@ const AddProducts = ({navigation}: any) => (
   </View>
 );
 
-export default AddProducts;
+export default ProductsAdded;
 
 const styles = StyleSheet.create({
   mainContainer: {

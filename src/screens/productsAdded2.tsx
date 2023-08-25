@@ -14,7 +14,7 @@ const TextHolder = () => {
   return <View></View>;
 };
 
-const AddProducts = ({navigation}: any) => (
+const ProductsAdded2 = ({navigation}: any) => (
   <View style={styles.mainContainer}>
     <View
       style={{
@@ -78,13 +78,31 @@ const AddProducts = ({navigation}: any) => (
       Add Products to your sales
     </Text>
     <ScrollView>
-    <Chip
+      <View style={styles.productBoxStyle}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View>
+            <Text style={styles.productNameStyle}>Britannia</Text>
+            <Text style={styles.productDetailsStyle}>
+              Quantity: 100{'\n'}Selling Price: TZS 2000
+            </Text>
+          </View>
+          <View>
+            <IconButton
+              icon={require('../assets/downArrow.png')}
+              iconColor="#FFFFFF"
+              size={16}
+            />
+          </View>
+        </View>
+      </View>
+      <Chip
         mode="outlined"
         textStyle={styles.chipText}
         theme={{colors: {primary: '#012E3C'}}}
         style={styles.chipStyle}
-        onPress={()=>{navigation.navigate('SearchProducts')}}
-        >
+        onPress={() => {
+          navigation.navigate('SearchProducts');
+        }}>
         Product Name
       </Chip>
       <UnsecuredTextBox placeholder="Quality" />
@@ -93,7 +111,12 @@ const AddProducts = ({navigation}: any) => (
       <UnsecuredTextBox placeholder="Selling Price" />
     </ScrollView>
     <View style={{marginTop: 10, height: 120}}>
-      <Button style={styles.addMoreButton} labelStyle={styles.addMoreText}>
+      <Button
+        style={styles.addMoreButton}
+        labelStyle={styles.addMoreText}
+        onPress={() => {
+          navigation.navigate('AddProducts');
+        }}>
         Add More
       </Button>
       <View style={styles.buttonContainer}>
@@ -109,7 +132,7 @@ const AddProducts = ({navigation}: any) => (
   </View>
 );
 
-export default AddProducts;
+export default ProductsAdded2;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -175,5 +198,21 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderWidth: 1.5,
     borderRadius: 10,
+  },
+  productBoxStyle: {
+    marginHorizontal: 20,
+    marginTop: 10,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#2A677A',
+  },
+  productNameStyle: {
+    fontSize: 14,
+    color: '#D5EAF1',
+    fontWeight: '500',
+  },
+  productDetailsStyle: {
+    color: '#D5EAF1',
+    fontSize: 11,
   },
 });

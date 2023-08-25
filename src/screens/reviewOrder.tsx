@@ -112,6 +112,25 @@ const ReviewOrder = ({navigation}: any) => {
         Add More
       </Button>
       <View style={styles.buttonContainer}>
+        <View>
+          <View style={{backgroundColor:'#08485C', paddingHorizontal:20}}>
+            <Text style={{color:'#FFFFFF'}}>Order Detail</Text>
+          </View>
+          <View>
+            <View style={{flexDirection:'row', justifyContent:'space-between', marginHorizontal:20, marginTop:10}}>
+              <Text style={{color:'#D5EAF1', fontSize:12}}>Subtotal</Text>
+              <Text style={{color:'#2A677A',fontSize:12}}>TZS 20000</Text>
+            </View>
+            <View style={{flexDirection:'row', justifyContent:'space-between', marginHorizontal:20, marginVertical:10}}>
+              <Text style={{color:'#D5EAF1', fontSize:12}}>Discount</Text>
+              <Text style={{color:'#2A677A',fontSize:12}}>12%</Text>
+            </View>
+            <View style={{flexDirection:'row', justifyContent:'space-between', marginHorizontal:20,marginBottom:10}}>
+              <Text style={{color:'#D5EAF1', fontSize:12}}>Total Amount</Text>
+              <Text style={{color:'#2A677A',fontSize:12}}>TZS 18000</Text>
+            </View>
+          </View>
+        </View>
         <TouchableOpacity style={styles.updateButton} onPress={()=>{navigation.navigate('AddPayment')}}>
           <Text style={styles.update}>Next</Text>
         </TouchableOpacity>

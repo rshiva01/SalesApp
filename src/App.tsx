@@ -24,9 +24,9 @@ import SalesDetails from './screens/SalesDetails';
 import SearchCustomers from './screens/searchCustomers';
 import CustomerAdded from './screens/createSales';
 import AddProducts from './screens/addProducts';
-import ReviewOrder from './screens/ReviewOrder';
+import ReviewOrder from './screens/reviewOrder';
 import AddPayment from './screens/addPayment';
-import SearchProducts from './screens/SearchProduct';
+import SearchProducts from './screens/searchProducts';
 import AddCustomers from './screens/addCustomer';
 import NewLogIn from './screens/NewLogIn';
 import Profile2 from './screens/editProfile';
@@ -43,6 +43,7 @@ import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import {PaperProvider, adaptNavigationTheme} from 'react-native-paper';
+import ProductsAdded2 from './screens/productsAdded2';
 
 const App = () => {
   //return <OnBoarding1/>
@@ -73,6 +74,8 @@ const App = () => {
   //return <ReviewOrder/>
   //return <AddCustomers/>
   //return <AddPayment/>
+  //return <ProductsAdded2/>
+
   const isDarkMode = useColorScheme() === 'dark';
   const {LightTheme, DarkTheme} = adaptNavigationTheme({
     reactNavigationLight: NavigationDefaultTheme,

@@ -1,8 +1,10 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
-import {Button, Divider, IconButton} from 'react-native-paper';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Button, Divider, IconButton, Searchbar} from 'react-native-paper';
 
-const SearchProducts = () => {
+const SearchProducts = ({navigation}:any) => {
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const onChangeSearch = (query: any) => setSearchQuery(query);
   return (
     <View style={styles.mainContainer}>
       <View
@@ -21,6 +23,21 @@ const SearchProducts = () => {
         </View>
         <Button labelStyle={{color: '#F6B100', fontSize: 14}}>Cancel</Button>
       </View>
+      <View>
+        <Searchbar
+          placeholder="Search by customer name, Email Id"
+          placeholderTextColor={'#D5EAF1'}
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+          mode="view"
+          icon={require('../assets/searchButtonIcon.png')}
+          style={styles.searchBar}
+          showDivider={false}
+          inputStyle={styles.placeHolder}
+          theme={{colors: {primary: '#D5EAF1'}}}
+          iconColor="#2A677A"
+        />
+      </View>
       <View
         style={{
           paddingVertical: 20,
@@ -31,8 +48,10 @@ const SearchProducts = () => {
           height: 500,
         }}>
         <View>
-          <Text style={styles.itemNameStyle}>Britannia</Text>
-          <Text style={styles.priceStyle}>Unit price - TZS 5000</Text>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ProductsAdded')}}>
+            <Text style={styles.itemNameStyle}>Britannia</Text>
+            <Text style={styles.priceStyle}>Unit price - TZS 5000</Text>
+          </TouchableOpacity>
           <Divider
             style={styles.dividerStyle}
             theme={{colors: {primary: '#08485C'}}}
@@ -86,5 +105,15 @@ const styles = StyleSheet.create({
   priceStyle: {
     color: '#D5EAF1',
     fontSize: 10,
+  },
+  searchBar: {
+    backgroundColor: '#012E3C',
+    borderRadius: 15,
+    height: 44,
+    alignItems: 'center',
+  },
+  placeHolder: {
+    color: '#D5EAF1',
+    alignSelf: 'center',
   },
 });
