@@ -7,7 +7,7 @@ import ForgotPassword2 from '../screens/forgotPassword2';
 import ChangePassword2 from '../screens/changePassword2';
 import Profile from '../screens/profile';
 import Notifications from '../screens/notifications';
-import SalesDetails from '../screens/salesDetails';
+import SalesDetails from '../screens/SalesDetails';
 
 const Stack = createNativeStackNavigator();
 
