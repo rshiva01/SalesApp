@@ -18,6 +18,7 @@ const SearchProducts = ({navigation}:any) => {
             icon={require('../assets/backArrowButton.png')}
             iconColor="#F6B100"
             size={19}
+            onPress = {()=> navigation.goBack()}
           />
           <Text style={{color: '#F6B100'}}>Search Products</Text>
         </View>

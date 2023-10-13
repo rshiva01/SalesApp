@@ -101,7 +101,7 @@ const ProductsAdded2 = ({navigation}: any) => (
         theme={{colors: {primary: '#012E3C'}}}
         style={styles.chipStyle}
         onPress={() => {
-          navigation.navigate('SearchProducts');
+          navigation.navigate('SearchAssignment');
         }}>
         Product Name
       </Chip>

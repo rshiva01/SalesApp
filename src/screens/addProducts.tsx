@@ -83,7 +83,7 @@ const AddProducts = ({navigation}: any) => (
         textStyle={styles.chipText}
         theme={{colors: {primary: '#012E3C'}}}
         style={styles.chipStyle}
-        onPress={()=>{navigation.navigate('SearchProducts')}}
+        onPress={()=>{navigation.navigate('SearchAssignment')}}
         >
         Product Name
       </Chip>

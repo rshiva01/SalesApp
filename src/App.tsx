@@ -32,6 +32,7 @@ import NewLogIn from './screens/NewLogIn';
 import Profile2 from './screens/editProfile';
 import ChooseCustomer from './screens/chooseCustomer';
 import EditProfile from './screens/editProfile';
+import SearchAssignment from './screens/searchAssignment';
 import AppNavigator from './navigators/AppNavigator';
 import {CustomLightTheme, CustomDarkTheme} from './theme/rn-paper';
 import {
@@ -77,6 +78,7 @@ const App = () => {
   //return <AddPayment/>
   //return <ProductsAdded2/>
   //return <ResetPassword/>
+  // return <SearchAssignment/>
 
   const isDarkMode = useColorScheme() === 'dark';
   const {LightTheme, DarkTheme} = adaptNavigationTheme({
