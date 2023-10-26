@@ -106,7 +106,7 @@ const SalesEntry = (props: SalesProps) => {
 export {SalesEntry};
 
 const DashboardFilled = () => {
-  const {t} = useTranslatio();
+  const {t} = useTranslation();
   return (
     <View style={styles.container}>
       <AvatarNBell />
