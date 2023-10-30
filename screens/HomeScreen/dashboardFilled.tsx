@@ -18,7 +18,7 @@ import {
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {AvatarNBell, SalesSummary, SalesFigBox} from './dashboardEmpty';
 import BottomTab from '../../navigation/bottomTab';
-import {useTranslation} from '../../localization/
+import {useTranslation} from '../../localization/';
 
 type SalesProps = {
   name: string;
