@@ -1,19 +1,13 @@
-import {types as t} from 'mobx-state-tree';
-import {
-  UserModel,
-  AuthModel,
-  VehicleModel,
-  CurrentActivityModel,
-} from '../models';
-import {LocationModel} from '../models/Locations';
+import {flow, types as t, toGenerator} from 'mobx-state-tree';
+import {UserModel, AuthModel, CurrentActivityModel} from '../models';
+import {BookModel} from '../models/Book';
+import {requests, url} from '../helpers';
 // Now instantiate the store!
 export const RootStore = t
   .model({
     auth: t.maybeNull(AuthModel),
     user: t.maybeNull(UserModel),
-    selectedVehicle: t.maybeNull(VehicleModel),
-    locations: t.optional(t.map(LocationModel), {}),
-    wayPoints: t.optional(t.map(LocationModel), {}),
+    books: t.optional(t.map(BookModel), {}),
     currentActivity: t.maybeNull(CurrentActivityModel),
   })
   .actions(self => ({
@@ -21,35 +15,73 @@ export const RootStore = t
       self.auth.login(data);
       self.user.update(data.user);
     },
-    addLocation(data) {
-      self.locations.set(data.timestamp, LocationModel.create(data));
+    setSelectedBook(data) {
+      const book = self.books.get(data.id);
+      self.selectedBook = {...book, user: {...book.user}};
+      self.currentActivity.currency = book.currency;
     },
-    addWayPoint(id, data) {
-      self.wayPoints.set(id, LocationModel.create(data));
+    addBook(data) {
+      const book = BookModel.create();
+      book.update(data);
+      self.books.set(data.id, book);
+      return book;
     },
-    addLocations(locations) {
-      locations.map(({timestamp, coords}) => {
-        self.locations.set(
-          timestamp,
-          LocationModel.create({timestamp, ...coords}),
-        );
-      });
-    },
-    initLocations(locations) {
-      locations.map(({timestamp, coords}) => {
-        self.locations.set(
-          timestamp,
-          LocationModel.create({timestamp, ...coords}),
-        );
-      });
-    },
-    addWayPoints(locations) {
-      locations.map(({timestamp, coords}) => {
-        self.wayPoints.set(
-          timestamp,
-          LocationModel.create({timestamp, ...coords}),
-        );
-      });
+    createBook: flow(function* (params) {
+      const {data, ok, originalError} = yield* toGenerator(
+        requests.post(url.retailer.Book, {
+          ...params,
+          user: self.user.id,
+        }),
+      );
+      if (ok) {
+        const book = self.addBook(data);
+        return {ok, data, book};
+      } else {
+        return {
+          ok,
+          data,
+          originalError,
+        };
+      }
+    }),
+    deleteBook: flow(function* (id) {
+      const {data, ok, originalError} = yield* toGenerator(
+        requests.delete(url.getItemURL('retailer.Book', {id})),
+      );
+      if (ok) {
+        self.books.delete(id);
+        return {ok, originalError, data};
+      } else {
+        return {ok, originalError, data};
+      }
+    }),
+    updateBook: flow(function* (id, params) {
+      const {data, ok, originalError} = yield* toGenerator(
+        requests.patch(url.getItemURL('retailer.Book', {id}), {
+          ...params,
+        }),
+      );
+      if (ok) {
+        const book = self.books.get(id);
+        book.update(data);
+        self.books.set(data.id, book);
+        return {ok, book, data};
+      } else {
+        return {
+          ok,
+          data,
+          originalError,
+        };
+      }
+    }),
+    async fetchBooks(params = {}) {
+      const {data, ok} = await requests.get(url.retailer.Book, params);
+      if (ok) {
+        data.results.map(book => self.addBook(book));
+        if (!self.selectedBook && data.results[0]) {
+          self.setSelectedBook(data.results[0]);
+        }
+      }
     },
     resetSubState(subState) {
       const subStateName = subState.$treenode?.subpath;
@@ -57,21 +89,11 @@ export const RootStore = t
         self[subStateName] = {};
       }
     },
-    setSelectedVehicle(vehicle) {
-      if (vehicle) {
-        const veh = VehicleModel.create();
-        veh.update(vehicle);
-        self.selectedVehicle = veh;
-      } else {
-        self.selectedVehicle = null;
-      }
-    },
   }));
 
 export const rootStore = RootStore.create({
   auth: AuthModel.create(),
   user: UserModel.create(),
-  selectedVehicle: null,
   currentActivity: CurrentActivityModel.create(),
 });
 export default RootStore;

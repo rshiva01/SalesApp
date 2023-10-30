@@ -1,116 +1,109 @@
-import React from 'react';
-import {StyleSheet, useColorScheme} from 'react-native';
-import Toast from 'react-native-toast-message';
-import Login from './screens/Login';
-import OnBoarding1 from './screens/onBoarding1';
-import OnBoarding2 from './screens/onBoarding2';
-import OnBoarding3 from './screens/onBoarding3';
+/**
+ * SmartDuka Mobile App
+ * Developed by Paschal Giki
+ * Copyright (c) SwitchAfrica Inc
+ * @format
+ */
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import DashboardEmpty from './screens/HomeScreen/dashboardEmpty';
-import DashboardFilled from './screens/HomeScreen/dashboardFilled';
-import ForgotPassword1 from './screens/forgotPassword1';
-import ForgotPassword2 from './screens/forgotPassword2';
-import ChangePassword2 from './screens/changePassword2';
-import Profile from './screens/Profile';
-import Notifications from './screens/Notifications';
-import BottomTab from './navigators/BottomTabNavigator';
-import AppLock from './screens/appLock';
-import FAQ from './screens/faq';
-import AboutUs from './screens/aboutUs';
-import TermsNCondition from './screens/TermsConditions';
-import CreateSales from './screens/createSales';
-import SalesDetails from './screens/SalesDetails';
-import SearchCustomers from './screens/searchCustomers';
-import CustomerAdded from './screens/createSales';
-import AddProducts from './screens/addProducts';
-import ReviewOrder from './screens/reviewOrder';
-import AddPayment from './screens/addPayment';
-import SearchProducts from './screens/searchProducts';
-import AddCustomers from './screens/addCustomer';
-import NewLogIn from './screens/NewLogIn';
-import Profile2 from './screens/editProfile';
-import ChooseCustomer from './screens/chooseCustomer';
-import EditProfile from './screens/editProfile';
-import SearchAssignment from './screens/searchAssignment';
-import AppNavigator from './navigators/AppNavigator';
+import {StyleSheet, useColorScheme, Linking} from 'react-native';
+import {PaperProvider, adaptNavigationTheme} from 'react-native-paper';
+import Toast from 'react-native-toast-message';
 import {CustomLightTheme, CustomDarkTheme} from './theme/rn-paper';
+import {AppNavigator} from './navigators';
+import {useProvider} from 'mobx-store-provider';
+import RootStore, {rootStore} from './stores/rootStore';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
 import merge from 'deepmerge';
-import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
-import {PaperProvider, adaptNavigationTheme} from 'react-native-paper';
-import ProductsAdded2 from './screens/productsAdded2';
-import ResetPassword from './screens/resetPassword';
+import RNBootSplash from 'react-native-bootsplash';
+import {storage} from './helpers/storage';
+import {localStorageKey} from './stores';
+import {utils} from './helpers';
 
-const App = () => {
-  //return <OnBoarding1/>
-  //return <OnBoarding2/>
-  //return <OnBoarding3/>
-  //return <Login/>
-  //return <DashboardEmpty/>
-  //return <DashboardFilled/>
-  //return <ForgotPassword1/>
-  //return <ForgotPassword2/>
-  //return <ChangePassword2/>
-  //return <Profile/>
-  //return <Profile2/>
-  //return <Notifications/>
-  // return <AppLock/>
-  //return <FAQ/>
-  // return <AboutUs/>
-  // return <TermsNCondition/>
-  //return <CreateSales/>
-  //return <ChooseCustomer/>
-  //return <SalesDetails/>
-  //return <SearchCustomers/>
-  //return <EditProfile/>
-  //return <CustomerAdded/>
-  //return <AddPayment/>
-  //return <AddProducts/>
-  //return <SearchProducts/>
-  //return <ReviewOrder/>
-  //return <AddCustomers/>
-  //return <AddPayment/>
-  //return <ProductsAdded2/>
-  //return <ResetPassword/>
-  // return <SearchAssignment/>
+const onNavigationStateChange = data => {
+  storage.set(localStorageKey.navigationState, data);
+};
 
+function App() {
   const isDarkMode = useColorScheme() === 'dark';
+  const StoreProvider = useProvider(RootStore);
   const {LightTheme, DarkTheme} = adaptNavigationTheme({
     reactNavigationLight: NavigationDefaultTheme,
     reactNavigationDark: NavigationDarkTheme,
   });
-  const CombinedDefaultTheme = merge(LightTheme, CustomLightTheme);
-  const CombinedDarkTheme = merge(DarkTheme, CustomDarkTheme);
+  const CombinedDefaultTheme = useMemo(
+    () => merge(LightTheme, CustomLightTheme),
+    [LightTheme],
+  );
+  const CombinedDarkTheme = useMemo(
+    () => merge(DarkTheme, CustomDarkTheme),
+    [DarkTheme],
+  );
+
+  const linking = {
+    prefixes: ['smartduka://'],
+  };
+  const onReady = useCallback(() => {
+    RNBootSplash.hide({fade: true}); // fade with 220ms default duration
+  }, []);
+
+  const initialNavigationState = useMemo(() => {
+    const state = storage.get(localStorageKey.navigationState);
+    if (state) {
+      return state;
+    }
+    return undefined;
+  }, []);
+
+  const onInitialURL = initialURL => {
+    const queryParams = utils.parseURL(initialURL);
+    __DEV__ &&
+      console.log(`Linked to app with data: ${JSON.stringify(queryParams)}`);
+  };
+
+  useEffect(() => {
+    Linking.getInitialURL().then(initialURL => {
+      if (initialURL) {
+        onInitialURL(initialURL);
+      }
+    });
+    Linking.addEventListener('url', ({url}) => {
+      onInitialURL(url);
+    });
+  }, []);
   return (
     <GestureHandlerRootView style={styles.flex1}>
-      <PaperProvider
-        theme={isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme}>
-        <NavigationContainer>
+      <StoreProvider value={rootStore}>
+        <PaperProvider
+          theme={isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme}>
           <BottomSheetModalProvider>
-            <SafeAreaProvider>
-              <SafeAreaView edges={['top']} style={styles.flex1}>
-                <AppNavigator
-                // linking={linking}
-                // initialState={initialNavigationState}
-                // onStateChange={onNavigationStateChange}
-                />
-              </SafeAreaView>
-              <Toast />
-            </SafeAreaProvider>
+            <NavigationContainer
+              linking={linking}
+              // fallback={<Loading />}
+              onReady={onReady}
+              initialState={initialNavigationState}
+              onStateChange={onNavigationStateChange}>
+              <SafeAreaProvider>
+                <AppNavigator />
+                <Toast />
+              </SafeAreaProvider>
+            </NavigationContainer>
           </BottomSheetModalProvider>
-        </NavigationContainer>
-      </PaperProvider>
+        </PaperProvider>
+      </StoreProvider>
     </GestureHandlerRootView>
   );
-};
+  // return(<TransactionDetail/>)
+}
 
-export default App;
 const styles = StyleSheet.create({
   flex1: {flex: 1},
 });
+
+export default App;
