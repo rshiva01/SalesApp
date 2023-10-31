@@ -19,7 +19,7 @@ import SearchAssignment from '../screens/searchAssignment';
 
 const Stack = createNativeStackNavigator();
 
-export default function AppNavigator() {
+export function AppNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{

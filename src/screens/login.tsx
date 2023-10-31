@@ -1,7 +1,9 @@
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Divider, TextInput, Checkbox} from 'react-native-paper';
 import {useTranslation} from '../localization';
+import {requests, url, utils} from '../helpers';
+import {useRootStore} from '../effects';
 
 const LogoContainer = () => {
   return (
@@ -51,8 +53,32 @@ const Content = (props: ContentProps) => {
 export {Content};
 
 const Login = ({navigation}: any) => {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
+  const [values, setValues] = useState({});
   const {t} = useTranslation();
+  const {auth} = useRootStore();
+  const [errorMessage, setErrorMessage] = useState({});
+
+  const setValue = name => value => {
+    setValues({...values, [name]: value});
+  };
+
+  const onLogin = async password => {
+    const {data, ok} = await requests.post(url.auth.login, values, {
+      withCredentials: false,
+    });
+    if (ok && data.access) {
+      auth.login(data);
+      utils.toast(t('Logged in successfully'));
+      navigation.navigate('MainNavigator');
+    } else {
+      setErrorMessage({
+        text: t('Wrong pin') + ' ' + (data.detail || ''),
+        type: 'error',
+      });
+    }
+  };
+
   return (
     <View style={styles.mainContainer}>
       <LogoContainer />
@@ -63,11 +89,11 @@ const Login = ({navigation}: any) => {
         mode="outlined"
         label={t('Mobile Number')}
         placeholder={t('Enter mobile number')}
-        secureTextEntry={true}
         outlineColor="#FFF"
         textColor="#D5EAF1"
         activeOutlineColor="#D5EAF1"
         selectionColor="#FFF"
+        onChangeText={setValue('username')}
         // placeholderTextColor="#FFFFFF"
         outlineStyle={styles.outline}
       />
@@ -81,6 +107,7 @@ const Login = ({navigation}: any) => {
         textColor="#D5EAF1"
         activeOutlineColor="#D5EAF1"
         selectionColor="#FFF"
+        onChangeText={setValue('password')}
         // placeholderTextColor="#FFFFFF"
         outlineStyle={styles.outline}
       />
@@ -103,11 +130,7 @@ const Login = ({navigation}: any) => {
       </View>
       <Text style={styles.copyRightText}>Copy @ Switch 2023</Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.updateButton}
-          onPress={() => {
-            navigation.navigate('App');
-          }}>
+        <TouchableOpacity style={styles.updateButton} onPress={onLogin}>
           <Text style={styles.update}>Log In</Text>
         </TouchableOpacity>
       </View>
